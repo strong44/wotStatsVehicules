@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+              http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5"
+         xmlns="http://java.sun.com/xml/ns/javaee">
+
+  <!-- Servlets -->
+  <servlet>
+    <servlet-name>greetServlet</servlet-name>
+    <servlet-class>com.wot.server.WotServiceImpl</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>greetServlet</servlet-name>
+    <url-pattern>/wottest1/greet</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+        <servlet-name>cronPersistPlayersStats</servlet-name>
+        <servlet-class>com.wot.server.CronPersistPlayersStats</servlet-class>
+   </servlet>
+   
+   <servlet>
+        <servlet-name>persistPlayersRecruistation</servlet-name>
+        <servlet-class>com.wot.server.PersistPlayersRecruistation</servlet-class>
+   </servlet>
+   
+   <servlet>
+        <servlet-name>readPersistPlayersRecruistation</servlet-name>
+        <servlet-class>com.wot.server.ReadPersistPlayersRecruistation</servlet-class>
+   </servlet>
+   
+   <servlet>
+        <servlet-name>cronDeletePlayersStats</servlet-name>
+        <servlet-class>com.wot.server.CronDeletePlayersStats</servlet-class>
+   </servlet>
+   
+   
+   <servlet>
+        <servlet-name>readPersistPlayersStats</servlet-name>
+        <servlet-class>com.wot.server.ReadPersistPlayersStats</servlet-class>
+   </servlet>
+   
+
+   <servlet>
+        <servlet-name>readPersistPlayersAddedOrDeletedInClan</servlet-name>
+        <servlet-class>com.wot.server.ReadPersistPlayersAddedOrDeletedInClan</servlet-class>
+   </servlet>
+   
+   <servlet>
+        <servlet-name>cronAmazone</servlet-name>
+        <servlet-class>com.wot.server.CronAmazone</servlet-class>
+   </servlet>
+   
+   <servlet>
+        <servlet-name>proxyWotWeb</servlet-name>
+        <servlet-class>com.wot.server.ProxyWotWeb</servlet-class>
+   </servlet>
+   
+
+   <servlet-mapping>
+        <servlet-name>proxyWotWeb</servlet-name>
+        <url-pattern>/WotWeb</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+        <servlet-name>cronDeletePlayersStats</servlet-name>
+        <url-pattern>/cronDeletePlayersStats</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+        <servlet-name>cronPersistPlayersStats</servlet-name>
+        <url-pattern>/cronPersistPlayersStats</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+        <servlet-name>persistPlayersRecruistation</servlet-name>
+        <url-pattern>/persistPlayersRecruistation</url-pattern>
+   </servlet-mapping>
+   
+   <servlet-mapping>
+        <servlet-name>readPersistPlayersRecruistation</servlet-name>
+        <url-pattern>/readPersistPlayersRecruistation</url-pattern>
+   </servlet-mapping>
+ 
+   <servlet-mapping>
+        <servlet-name>readPersistPlayersStats</servlet-name>
+        <url-pattern>/readPersistPlayersStats</url-pattern>
+   </servlet-mapping>
+
+
+      
+   <servlet-mapping>
+        <servlet-name>cronAmazone</servlet-name>
+        <url-pattern>/cronAmazone</url-pattern>
+   </servlet-mapping>
+   
+      <servlet-mapping>
+        <servlet-name>readPersistPlayersAddedOrDeletedInClan</servlet-name>
+        <url-pattern>/readPersistPlayersAddedOrDeletedInClan</url-pattern>
+   </servlet-mapping>
+   
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>WotTest1.html</welcome-file>
+  </welcome-file-list>
+
+ <!-- Servlets -->
+  <servlet>
+    <servlet-name>uploadServlet</servlet-name>
+    <servlet-class>com.wot.server.FileUploadServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>uploadServlet</servlet-name>
+    <url-pattern>/wottest1/upload</url-pattern>
+  </servlet-mapping>
+</web-app>

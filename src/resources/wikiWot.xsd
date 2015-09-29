@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:ref="http://wotachievement.appspot.com/"
+		targetNamespace="http://wotachievement.appspot.com/"
+		elementFormDefault="qualified"
+		version="0.1 beta">
+		
+	
+	<!-- THE ROOT ELEMENT -->
+	
+	<xs:element 		type="ref:XmlWiki" 		name="WIKI"/>
+	
+	<xs:complexType name="XmlWiki">
+		<xs:sequence>
+			<xs:element	type="ref:XmlAchievements"			name="ACHIEVEMENTS"				minOccurs="1"			maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	<xs:complexType name="XmlAchievements">
+		<xs:sequence>
+			<xs:element	type="ref:XmlListCategoryAchievement"		name="CATEGORY_ACHIEVEMENT"		minOccurs="1"	maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="XmlListCategoryAchievement">
+		<xs:sequence>
+			<xs:element type="ref:XmlListAchievement" name="ACHIEVEMENT" minOccurs="1" maxOccurs="unbounded" />
+			<xs:element type="ref:XmlDescription" name="DESCRIPTION" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute type="xs:string" name="NAME" use="required" />
+	</xs:complexType>
+
+	<xs:complexType name="XmlDescription">
+		<xs:attribute	type="xs:string"			name="VALUE"			use="required"/>
+	</xs:complexType>
+
+	<xs:complexType name="XmlListAchievement">
+		<xs:sequence>
+			<xs:element	type="ref:XmlListSrcImg"			name="SRC_IMG"	minOccurs="1"			maxOccurs="1"/>
+			<xs:element type="ref:XmlDescription" 			name="DESCRIPTION" minOccurs="1" maxOccurs="1" />
+		</xs:sequence>
+		<xs:attribute	type="xs:string"		name="NAME"		use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="XmlListSrcImg">
+		<xs:sequence>
+			<xs:element	type="ref:XmlSrc"			name="SRC"				minOccurs="1"			maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="XmlSrc">
+		<xs:attribute	type="xs:string"			name="VALUE"			use="required"/>
+	</xs:complexType>
+	
+</xs:schema>
