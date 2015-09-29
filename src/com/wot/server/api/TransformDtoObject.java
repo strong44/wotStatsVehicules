@@ -7,85 +7,77 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import com.wot.server.DaoClan;
 import com.wot.server.DaoCommunityAccount2;
 import com.wot.server.DaoCommunityClan2;
-import com.wot.server.DaoDataClan;
 import com.wot.server.DaoDataCommunityAccount2;
-import com.wot.server.DaoDataCommunityAccountRatings2;
 import com.wot.server.DaoDataCommunityAccountStatsVehicules;
 import com.wot.server.DaoDataCommunityClanMembers;
 import com.wot.server.DaoDataCommunityMembers;
-import com.wot.server.DaoItemsDataClan;
 import com.wot.shared.AllStatistics;
-import com.wot.shared.Clan;
 import com.wot.shared.CommunityAccount;
 import com.wot.shared.CommunityClan;
-import com.wot.shared.DataClan;
-import com.wot.shared.DataCommunityAccountVehicules;
 import com.wot.shared.DataCommunityClan;
 import com.wot.shared.DataCommunityClanMembers;
 import com.wot.shared.DataCommunityMembers;
 import com.wot.shared.DataPlayerInfos;
 import com.wot.shared.DataPlayerTankRatings;
-import com.wot.shared.ItemsDataClan;
 import com.wot.shared.PlayersInfos;
 import com.wot.shared.Statistics;
 //import com.wot.server.DaoDataCommunityAccountStats;
 
 public class TransformDtoObject {
 
-	public static DaoClan TransformClanToDaoClan(Clan clan ) {
-		
-		DaoClan daoClan = new DaoClan();
-		daoClan.setStatus( clan.getStatus());
-		
-		daoClan.setItems(TransformItemsDataClanToDaoItemsDataClan(clan.getItems()));
-		return daoClan;
-	}
-
-	public static DaoDataClan TransformDataClanToDaoDataClan(DataClan dataclan ) {
-		
-		DaoDataClan daoDataClan = new DaoDataClan();
-		daoDataClan.setItems(TransformItemsDataClanToDaoItemsDataClan(dataclan.getItems()));
-		return daoDataClan;
-	}
-	
-	//transforme la liste des itemsDataclan
-	public static List<DaoItemsDataClan> TransformItemsDataClanToDaoItemsDataClan(List<ItemsDataClan> itemsDataclan ) {
-		
-		List<DaoItemsDataClan> listDaoItemsDataClan = new ArrayList<DaoItemsDataClan>();
-		
-		//transform each ItemsDataClan to DAOItemsDataClan
-		for (ItemsDataClan myItemsDataClan : itemsDataclan) {
-			listDaoItemsDataClan.add(TransformItemsDataClanToDaoItemsDataClan(myItemsDataClan));
-		}
-		return listDaoItemsDataClan;
-		
-	}
-	
-	//transforme un itemsDataclan
-	public static DaoItemsDataClan TransformItemsDataClanToDaoItemsDataClan(ItemsDataClan itemsDataclan ) {
-		
-		DaoItemsDataClan daoItemsDataClan = new DaoItemsDataClan();
-
-		daoItemsDataClan.setClan_color(itemsDataclan.getClan_color());
-		
-		
-		daoItemsDataClan.setCreated_at(itemsDataclan.getCreated_at());
-		
-		daoItemsDataClan.setId(itemsDataclan.getId());
-		
-		daoItemsDataClan.setMember_count(itemsDataclan.getMember_count());
-		
-		
-		daoItemsDataClan.setName(itemsDataclan.getName());
-		
-		
-		
-		return daoItemsDataClan;
-		
-	}
+//	public static DaoClan TransformClanToDaoClan(Clan clan ) {
+//		
+//		DaoClan daoClan = new DaoClan();
+//		daoClan.setStatus( clan.getStatus());
+//		
+//		daoClan.setItems(TransformItemsDataClanToDaoItemsDataClan(clan.getItems()));
+//		return daoClan;
+//	}
+//
+//	public static DaoDataClan TransformDataClanToDaoDataClan(DataClan dataclan ) {
+//		
+//		DaoDataClan daoDataClan = new DaoDataClan();
+//		daoDataClan.setItems(TransformItemsDataClanToDaoItemsDataClan(dataclan.getItems()));
+//		return daoDataClan;
+//	}
+//	
+//	//transforme la liste des itemsDataclan
+//	public static List<DaoItemsDataClan> TransformItemsDataClanToDaoItemsDataClan(List<ItemsDataClan> itemsDataclan ) {
+//		
+//		List<DaoItemsDataClan> listDaoItemsDataClan = new ArrayList<DaoItemsDataClan>();
+//		
+//		//transform each ItemsDataClan to DAOItemsDataClan
+//		for (ItemsDataClan myItemsDataClan : itemsDataclan) {
+//			listDaoItemsDataClan.add(TransformItemsDataClanToDaoItemsDataClan(myItemsDataClan));
+//		}
+//		return listDaoItemsDataClan;
+//		
+//	}
+//	
+//	//transforme un itemsDataclan
+//	public static DaoItemsDataClan TransformItemsDataClanToDaoItemsDataClan(ItemsDataClan itemsDataclan ) {
+//		
+//		DaoItemsDataClan daoItemsDataClan = new DaoItemsDataClan();
+//
+//		daoItemsDataClan.setClan_color(itemsDataclan.getClan_color());
+//		
+//		
+//		daoItemsDataClan.setCreated_at(itemsDataclan.getCreated_at());
+//		
+//		daoItemsDataClan.setId(itemsDataclan.getId());
+//		
+//		daoItemsDataClan.setMember_count(itemsDataclan.getMember_count());
+//		
+//		
+//		daoItemsDataClan.setName(itemsDataclan.getName());
+//		
+//		
+//		
+//		return daoItemsDataClan;
+//		
+//	}
 	
 //	//== Tranform datas CLAN and members 
 //	public static DaoCommunityClan TransformCommunityClanToDaoCommunityClan(CommunityClan communityClan ) {
@@ -272,56 +264,56 @@ public class TransformDtoObject {
 		return myDaoDataCommunityAccount;
 	}
 
-	private static DaoDataCommunityAccountRatings2 TransformDataCommunityAccountRatingsToDaoDataCommunityAccountRatings(Statistics statistics) {
-		DaoDataCommunityAccountRatings2 myDaoDataCommunityAccountRatings = new DaoDataCommunityAccountRatings2();
-		
-		//avg perf : ratio wins/battles 
-		//Double perf =  new Double(statistics.getAllStatistics().getWins())/ new Double(statistics.getAllStatistics().getBattles());
-		//myDaoDataCommunityAccountRatings.setBattle_avg_performance(perf);
-		
-		myDaoDataCommunityAccountRatings.setBattle_avg_performanceCalc(statistics.getAllStatistics().getBattle_avg_performanceCalc());
-		
-		myDaoDataCommunityAccountRatings.setBattle_avg_xp(new Double(statistics.getAllStatistics().getBattle_avg_xp()));
-		
-		myDaoDataCommunityAccountRatings.setBattle_wins(new Double(statistics.getAllStatistics().getWins()));
-		
-		myDaoDataCommunityAccountRatings.setBattles(new Double(statistics.getAllStatistics().getBattles()));
-		
-		myDaoDataCommunityAccountRatings.setCtf_points(new Double(statistics.getAllStatistics().getCapture_points()));
-		
-		myDaoDataCommunityAccountRatings.setDamage_dealt(new Double(statistics.getAllStatistics().getDamage_dealt()));
-		
-		myDaoDataCommunityAccountRatings.setDropped_ctf_points(new Double(statistics.getAllStatistics().getDropped_capture_points()));
-		
-		myDaoDataCommunityAccountRatings.setFrags(new Double(statistics.getAllStatistics().getFrags()));
-		
-	
-		myDaoDataCommunityAccountRatings.setRatioCtfPoints(new Double(statistics.getAllStatistics().getRatioCtfPoints()));
-		
-		if (statistics.getAllStatistics().getRatioDamagePoints() != null) 
-			myDaoDataCommunityAccountRatings.setRatioDamagePoints(new Double(statistics.getAllStatistics().getRatioDamagePoints()));
-		
-		if(statistics.getAllStatistics().getRatioDestroyedPoints()!= null) 
-			myDaoDataCommunityAccountRatings.setRatioDestroyedPoints(new Double(statistics.getAllStatistics().getRatioDestroyedPoints()));
-		
-		if(statistics.getAllStatistics().getRatioDetectedPoints() != null)
-			myDaoDataCommunityAccountRatings.setRatioDetectedPoints(new Double(statistics.getAllStatistics().getRatioDetectedPoints()));
-		
-		if(statistics.getAllStatistics().getRatioDestroyedPoints() != null)
-			myDaoDataCommunityAccountRatings.setRatioDroppedCtfPoints(new Double(statistics.getAllStatistics().getRatioDestroyedPoints()));
-		
-		
-		myDaoDataCommunityAccountRatings.setSpotted(new Double(statistics.getAllStatistics().getSpotted()));
-		
-		
-		myDaoDataCommunityAccountRatings.setXp(new Double(statistics.getAllStatistics().getXp()));
-		
-		myDaoDataCommunityAccountRatings.setAverageLevel(new Double(statistics.getAllStatistics().getAverageLevelTankCalc()));
-		
-		myDaoDataCommunityAccountRatings.setWn8(new Double(statistics.getAllStatistics().getWn8()));
-		
-		return myDaoDataCommunityAccountRatings;
-	}
+//	private static DaoDataCommunityAccountRatings2 TransformDataCommunityAccountRatingsToDaoDataCommunityAccountRatings(Statistics statistics) {
+//		DaoDataCommunityAccountRatings2 myDaoDataCommunityAccountRatings = new DaoDataCommunityAccountRatings2();
+//		
+//		//avg perf : ratio wins/battles 
+//		//Double perf =  new Double(statistics.getAllStatistics().getWins())/ new Double(statistics.getAllStatistics().getBattles());
+//		//myDaoDataCommunityAccountRatings.setBattle_avg_performance(perf);
+//		
+//		myDaoDataCommunityAccountRatings.setBattle_avg_performanceCalc(statistics.getAllStatistics().getBattle_avg_performanceCalc());
+//		
+//		myDaoDataCommunityAccountRatings.setBattle_avg_xp(new Double(statistics.getAllStatistics().getBattle_avg_xp()));
+//		
+//		myDaoDataCommunityAccountRatings.setBattle_wins(new Double(statistics.getAllStatistics().getWins()));
+//		
+//		myDaoDataCommunityAccountRatings.setBattles(new Double(statistics.getAllStatistics().getBattles()));
+//		
+//		myDaoDataCommunityAccountRatings.setCtf_points(new Double(statistics.getAllStatistics().getCapture_points()));
+//		
+//		myDaoDataCommunityAccountRatings.setDamage_dealt(new Double(statistics.getAllStatistics().getDamage_dealt()));
+//		
+//		myDaoDataCommunityAccountRatings.setDropped_ctf_points(new Double(statistics.getAllStatistics().getDropped_capture_points()));
+//		
+//		myDaoDataCommunityAccountRatings.setFrags(new Double(statistics.getAllStatistics().getFrags()));
+//		
+//	
+//		myDaoDataCommunityAccountRatings.setRatioCtfPoints(new Double(statistics.getAllStatistics().getRatioCtfPoints()));
+//		
+//		if (statistics.getAllStatistics().getRatioDamagePoints() != null) 
+//			myDaoDataCommunityAccountRatings.setRatioDamagePoints(new Double(statistics.getAllStatistics().getRatioDamagePoints()));
+//		
+//		if(statistics.getAllStatistics().getRatioDestroyedPoints()!= null) 
+//			myDaoDataCommunityAccountRatings.setRatioDestroyedPoints(new Double(statistics.getAllStatistics().getRatioDestroyedPoints()));
+//		
+//		if(statistics.getAllStatistics().getRatioDetectedPoints() != null)
+//			myDaoDataCommunityAccountRatings.setRatioDetectedPoints(new Double(statistics.getAllStatistics().getRatioDetectedPoints()));
+//		
+//		if(statistics.getAllStatistics().getRatioDestroyedPoints() != null)
+//			myDaoDataCommunityAccountRatings.setRatioDroppedCtfPoints(new Double(statistics.getAllStatistics().getRatioDestroyedPoints()));
+//		
+//		
+//		myDaoDataCommunityAccountRatings.setSpotted(new Double(statistics.getAllStatistics().getSpotted()));
+//		
+//		
+//		myDaoDataCommunityAccountRatings.setXp(new Double(statistics.getAllStatistics().getXp()));
+//		
+//		myDaoDataCommunityAccountRatings.setAverageLevel(new Double(statistics.getAllStatistics().getAverageLevelTankCalc()));
+//		
+//		myDaoDataCommunityAccountRatings.setWn8(new Double(statistics.getAllStatistics().getWn8()));
+//		
+//		return myDaoDataCommunityAccountRatings;
+//	}
 
 	public static List<DaoDataCommunityAccountStatsVehicules> TransformDataCommunityAccountStatsVehiculesToDaoDataCommunityAccountStatsVehicules(
 		List<DataPlayerTankRatings> listPlayerTanksRatings) {
