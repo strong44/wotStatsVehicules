@@ -24,6 +24,12 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 import com.google.gson.Gson;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.wot.client.WotService;
@@ -51,7 +57,9 @@ import com.wot.shared.XmlWiki;
 @SuppressWarnings("serial")
 public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 	static public String proxy =  "http://wotnvs.appspot.com/WotWeb?";
-	
+	private static String urlServer = "http://www.noobmeter.com/player/eu/ " ;
+
+
 	static public String lieu = "maison"; //boulot ou maison si boulot -> WotWeb
 	boolean saveData = true;
 	private boolean saveDataPlayer = true;
@@ -1026,7 +1034,7 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 					//WN8 : recup de noobmeter
 					ArrayList<String> param = new ArrayList<String>();
 					param.add("WN8");
-					String statsWN8 = ReadPersistPlayersRecruistation.getStatsWithoutFormat(communityAccount.getData().getNickname(), param).get("WN8");
+					String statsWN8 = getStatsWithoutFormat(communityAccount.getData().getNickname(), param).get("WN8");
 					
 					try {
 						Double wn8 = Double.valueOf(statsWN8);
@@ -1219,6 +1227,90 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 		return null;
 	}
 
+	/**
+	 *  
+	 *  
+	 *  */
+	public static Map<String, String> getStatsWithoutFormat(String member, List<String> listKeyStat) throws IOException {
+		
+		//=======================
+		/*
+		 * 	WN8 805
+ 			Win Rate 48.2%
+ 			Recent WN8 785
+ 			Recent WR 44.64%
+ 			WN Rank 260966
 
+		 */
+		Map<String, String> mapStats = new HashMap<String, String>();
+		
+		//http://api.worldoftanks.eu/2.0/encyclopedia/tanks/?application_id=d0a293dc77667c9328783d489c8cef73
+		//http://www.noobmeter.com/player/eu/ 
+		//tablesorter
+		String urlServerLocal = urlServer + member ;
+		String url = null;
+	
+		if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
+			url = WotServiceImpl.proxy + urlServerLocal ;
+		}
+		else {
+			url = urlServerLocal ;
+		}
+		
+		////////////////////
+		//On se connecte au site et on charge le document html
+		Connection connection = Jsoup.connect(url);
+		connection.timeout(30*1000); //in miliseondes
+		
+		Document doc = connection.url(url).get();
+		
+		//On récupère dans ce document la premiere balise ayant comme nom h1 et pour attribut class="title"
+		Elements elementsTablesorter= doc.getElementsByClass("tablesorter");
+		
+		//Voir aussi si on peut ajouter le WN8 des joueurs
+		//http://wotlabs.net/eu/player/strong44
+		/*
+		 * <div class="boxStats boxWn green" style="width:18%;float:left;margin-right:2.5%;margin-bottom:25px;">
+			‌¶‌→
+			<span>WN8</span>
+			‌¶‌→1149‌→
+			</div>
+		 */
+		
+		for (Element elementTableSorter : elementsTablesorter ) {
+			Elements eleTableSorter = elementTableSorter.getElementsByTag("td"); //on cherche le TD WN8 Rating 
+			
+			boolean next = false ;
+			String keyStatMem = "";
+			for (Element eleSorter : eleTableSorter ) {
+				
+				//Recup de la valeur de la stat (une fois que le champ a été trouvé)
+				if (next)
+				{
+					//ajout au resultat ex: WN8/1200
+					//eleSorter.text() = 1200 (Good) 
+					//supression de la fin à partir de la pranthèse
+					String tmpStat =  eleSorter.text();
+					tmpStat = tmpStat.substring(0, tmpStat.indexOf("(")-1);
+					
+					mapStats.put(keyStatMem, tmpStat);
+					next = false;
+					keyStatMem = "";
+				}
+				
+				//recherche du titre de la stat ex: WN8
+				for (String keyStat : listKeyStat) {
+					if (eleSorter.text().contains(keyStat)) {
+						//le td suivant est le bon
+						keyStatMem = keyStat;
+						next = true ; 
+						break;
+					}
+				}
+				
+			}
+		}
+		return mapStats ;
+	}
 
 }

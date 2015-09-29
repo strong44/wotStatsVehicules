@@ -78,26 +78,9 @@ public class CronPersistPlayersStats extends HttpServlet {
 			myAllCommunityAccount.setListCommunityAccount(listCommunityAccount);
 			PersistenceManager pm =null;
 			pm = PMF.get().getPersistenceManager();
-			List<String> listIdUser = new ArrayList<String>();
+			
 			
 			try {
-				///Recuperation de l'encyclop�die des tanks ( n�cessaire pour connaitre le level de chaque char )  (pour calcul average level) 
-				//=======================
-				generateTankEncyclopedia();
-				
-
-				//-----------recup�ration des stats moyennes par TANK sur Noobmeter ---------
-				// n�cessaire pour le calcul du wn8
-				// url : http://www.wnefficiency.net/exp/expected_tank_values_latest.json
-				// retour de l'URL
-				/*
-				 * {"header":{"version":14},
-				 * "data":[{"IDNum":"3089","expFrag":"2.11","expDamage":"278.00","expSpot":"2.35","expDef":"1.84","expWinRate":"59.54"},
-				 * {"IDNum":"3329","expFrag":"2.10","expDamage":"270.00","expSpot":"1.55","expDef":"1.81","expWinRate":"60.46"},
-				 * {"IDNum":"577","expFrag":"2.01","expDamage":"268.00","expSpot":"2.12","expDef":"2.17","expWinRate":"60.24"},
-				 * {"IDNum":"1329","expFrag":"2.05","expDamage":"274.00","expSpot":"1.51","expDef":"2.10","expWinRate":"60.00"},
-				 */
-				generateWnEfficientyTank();
 
 				//construction de la liste des id des joueurs du clan (s�parateur la ,)  
 				//String AllIdUser = generateAllIdUsers(idClan, date);
@@ -141,7 +124,6 @@ public class CronPersistPlayersStats extends HttpServlet {
 				while ((lineUser = readerUser.readLine()) != null) {
 					AllLinesUser = AllLinesUser + lineUser;
 				}
-				//log.warning(url + " --> " + AllLinesUser.substring(0, 400)); 
 				
 				readerUser.close();
 				Gson gsonUser = new Gson();
@@ -171,7 +153,6 @@ public class CronPersistPlayersStats extends HttpServlet {
 				while ((lineUser = readerUser.readLine()) != null) {
 					AllLinesUser = AllLinesUser + lineUser;
 				}
-				//log.warning(url + " --> " + AllLinesUser.substring(0, 50)); 
 				
 				
 				readerUser.close();
@@ -188,18 +169,11 @@ public class CronPersistPlayersStats extends HttpServlet {
 				
 				/////////////////////
 				for(DataPlayerInfos dataPlayerInfos : listPlayerInfos) {
-					
-						
-						//make some calculation of stats 
-						//calcul average level 
-						//log.warning("communityAccount.getIdUser() " + dataPlayerInfos.getAccount_id());
 						List<DataPlayerTankRatings> listPlayerTanksRatings = mapDataPlayerTankRatings.get(String.valueOf(dataPlayerInfos.getAccount_id()));
 						
 						if(listPlayerTanksRatings == null) 
 							continue ;
 						
-						
-						//pm = PMF.get().getPersistenceManager();
 				        try {
 				        	
 				        	
@@ -266,101 +240,6 @@ public class CronPersistPlayersStats extends HttpServlet {
 		
 		}
 
-	public static void generateTankEncyclopedia() throws IOException {
-		///Recuperation de l'encyclop�die des tanks ( n�cessaire pour connaitre le level de chaque char )  (pour calcul average level) 
-		//=======================
-		if (tankEncyclopedia == null) {
-			//http://api.worldoftanks.eu/2.0/encyclopedia/tanks/?application_id=d0a293dc77667c9328783d489c8cef73
-			String urlServer = urlServerEU +"/2.0/encyclopedia/tanks/?application_id=" + applicationIdEU ;
-			URL url = null;
-			
-			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
-				url = new URL(WotServiceImpl.proxy + urlServer );
-			}
-			else {
-				url = new URL(urlServer );
-			}
-			
-			
-			HttpURLConnection conn2 = (HttpURLConnection)url.openConnection();
-			conn2.setReadTimeout(20000);
-			conn2.setConnectTimeout(20000);
-			conn2.getInputStream();
-			BufferedReader readerUser = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
-
-			String lineUser = "";
-			String AllLinesUser = "";
-
-			while ((lineUser = readerUser.readLine()) != null) {
-				AllLinesUser = AllLinesUser + lineUser;
-			}
-			readerUser.close();
-
-			Gson gsonUser = new Gson();
-			tankEncyclopedia = gsonUser.fromJson(AllLinesUser, TankEncyclopedia.class);
-		}
-		
-		//contr�le --------
-		if (tankEncyclopedia == null) {
-			log.severe("tankEncyclopedia is null" );
-			
-		}
-		else {
-			log.warning("tankEncyclopedia is good" );
-			if (tankEncyclopedia.getData() ==null ) {
-				log.severe("tankEncyclopedia data is null" );
-			}
-			else {
-				 Set<Entry<String, DataTankEncyclopedia>>  set = tankEncyclopedia.getData().entrySet();
-				
-				if (tankEncyclopedia.getData().get("6417") == null ){
-					log.severe("tankEncyclopedia data get tank id 6417 is null" );
-				}
-			}
-					
-		}
-		
-	}
-	
-	public static void generateWnEfficientyTank() throws IOException {
-		if (wnEfficientyTank == null) {
-			URL urlWnEfficienty = null ;
-			// recup des membres du clan NVS
-			urlWnEfficienty = null ;
-			
-			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
-				urlWnEfficienty = new URL(WotServiceImpl.proxy + "http://www.wnefficiency.net/exp/expected_tank_values_latest.json");				
-			}
-			else {
-				//500006074
-				urlWnEfficienty = new URL("http://www.wnefficiency.net/exp/expected_tank_values_latest.json");
-			}
-			
-			HttpURLConnection connWN = (HttpURLConnection)urlWnEfficienty.openConnection();
-			connWN.setReadTimeout(60000);
-			connWN.setConnectTimeout(60000);
-			connWN.getInputStream();
-			BufferedReader reader = new BufferedReader(new InputStreamReader(connWN.getInputStream()));
-			
-			String line = "";
-			String AllLines = "";
-	
-			while ((line = reader.readLine()) != null) {
-				AllLines = AllLines + line;
-			}
-			reader.close();
-			Gson gson = new Gson();
-			wnEfficientyTank = gson.fromJson(AllLines, WnEfficientyTank.class);
-			System.out.println("wnEfficientyTank" + wnEfficientyTank);
-			
-			//transform list to hashMap for easy treatement
-			//HashMap<String, DataWnEfficientyTank> hMapWnEfficientyTankHashMap = new HashMap<String, DataWnEfficientyTank>();
-			for (DataWnEfficientyTank dataWnEfficientyTank : wnEfficientyTank.getData()) {
-				//dataWnEfficientyTank.
-				hMapWnEfficientyTankHashMap.put(dataWnEfficientyTank.getIDNum(), dataWnEfficientyTank);
-			}
-		}
-	}
 	/*
 	 * Génere une hashMap id joueur/nom du joueur
 	 */
@@ -470,135 +349,6 @@ public class CronPersistPlayersStats extends HttpServlet {
 		daoCommunityClan.setIdClan(idClan);
 		daoCommunityClan.setDateCommunityClan(date);
 		
-		
-		//construction de la liste des joueurs partis ou arrivés dans le clan
-		//on requête le dernier <DaoCommunityClan2> et on le compare avec le courant (pas encore sauvé) 
-		//pour constituer une liste des joueurs added et une autre deleted que l'on sauve dans DaoCommunityClan2 courant
-		PersistenceManager pm = null;
-		pm = PMF.get().getPersistenceManager();
-        try {
-			Query query = pm.newQuery(DaoCommunityClan2.class);
-		    query.setFilter("idClan == nameParam");
-		    //query.setOrdering("name desc");
-		    query.setOrdering("dateCommunityClan desc"); //recup de la  derniere compo du CLAN  (J-1) 
-		    query.setRange(0, 1); //only 1 results 
-		    //query.setOrdering("hireDate desc");
-		    query.declareParameters("String nameParam");
-		    List<DaoCommunityClan2> resultsTmp = (List<DaoCommunityClan2>) query.execute(idClan);
-	
-	    	Map<String, String>  mapPrevDaoMembers = new HashMap<String, String>();; 
-	    	Map<String, String>  mapCurrentDaoMembers = new HashMap<String, String>(); 
-
-		  //recup des membres du j-1
-		    if(resultsTmp.size() >= 1  )
-		    {       
-		    	DaoCommunityClan2 myPrevDaoCommunityClan = resultsTmp.get(0);
-		    	
-		    	//construction de la hashMap des id et name du ser
-				CommunityClan prevCommunityClan = TransformDtoObject.TransformCommunityDaoCommunityClanToCommunityClan(myPrevDaoCommunityClan);
-				if (prevCommunityClan != null) {
-
-					DataCommunityClan myDataCommunityClan = prevCommunityClan.getData();
-					List<DataCommunityClanMembers> listClanMembers = myDataCommunityClan.getMembers();
-
-					for (DataCommunityClanMembers dataClanMember : listClanMembers) {
-						for (DataCommunityMembers member : dataClanMember.getMembers()) {
-							//log.warning("previous member " + member.getAccount_name() + " " + member.getAccount_id() );
-							String idUser = member.getAccount_id();
-							//log.warning("Previous User " + member.getAccount_name());
-							mapPrevDaoMembers.put(idUser, member.getAccount_name());
-						}
-					}//for (DataCommunityClanMembers
-				} else {
-
-					log.severe("Erreur de parse sur myPrevDaoCommunityClan");
-				}
-		    	
-		    	//recup des membres courant 
-		    	if (mapPrevDaoMembers != null && mapPrevDaoMembers.size() > 0 ) {
-					CommunityClan currentCommunityClan = TransformDtoObject.TransformCommunityDaoCommunityClanToCommunityClan(daoCommunityClan);
-
-					if (currentCommunityClan != null) {
-
-						DataCommunityClan myDataCommunityClan = currentCommunityClan.getData();
-						List<DataCommunityClanMembers> listClanMembers = myDataCommunityClan.getMembers();
-
-						for (DataCommunityClanMembers dataClanMember : listClanMembers) {
-							for (DataCommunityMembers member : dataClanMember.getMembers()) {
-								//log.warning("member " + member.getAccount_name() + " " + member.getAccount_id() );
-								String idUser = member.getAccount_id();
-								//log.warning("Previous User " + member.getAccount_name());
-								mapCurrentDaoMembers.put(idUser, member.getAccount_name());
-							}
-						}//for (DataCommunityClanMembers
-					} else {
-
-						log.severe("Erreur de parse sur currentCommunityClan");
-					}
-		    	}
-		    	
-		    	//comparaison des 2 liste de users
-		    	 Set<Entry<String, String>>  entryCurrentDaoMembers =  mapCurrentDaoMembers.entrySet();
-		    	 Set<Entry<String, String>>  entryPrevDaoMembers =  mapPrevDaoMembers.entrySet();
-		    	 
-		    	 String userAdded = "";
-		    	 String userDeleted = "";
-		    	 
-		    	 for(Entry<String, String> entryCurrentDaoMember : entryCurrentDaoMembers) {
-		    		 
-		    		 if (!mapPrevDaoMembers.containsKey(entryCurrentDaoMember.getKey())  ) {
-		    			 //joueur nouveau ds Clan 
-			    		 //log.warning("joueur ajouté " + entryCurrentDaoMember.getValue());
-			    		 userAdded = userAdded + " " + entryCurrentDaoMember.getValue();
-
-		    		 }else {
-		    			 //log.warning("joueur deja la  " + entryCurrentDaoMember.getValue());
-		    		 }
-		    		 
-		    	 }
-		    	 
-		    	 for(Entry<String, String> entryPrevDaoMember : entryPrevDaoMembers) {
-		    		 
-		    		 if (!mapCurrentDaoMembers.containsKey(entryPrevDaoMember.getKey())) {
-		    			 //Joueur parti du clan 
-		    			 //log.warning("joueur parti du clan " + entryPrevDaoMember.getValue());
-		    			 userDeleted = userDeleted + " " + entryPrevDaoMember.getValue();
-		    		 }else {
-		    			 //log.warning("joueur tjrs la " + entryPrevDaoMember.getValue());
-		    		 }
-		    		 
-		    	 }
-		    	 daoCommunityClan.setUserAdded(userAdded);
-		    	 daoCommunityClan.setUserDeleted(userDeleted);
-		    	
-		    }
-		    
-        }
-	    catch(Exception e){
-	    	e.printStackTrace();
-	    	log.log(Level.SEVERE, "Exception while saving daoCommunityClan", e);
-        	pm.currentTransaction().rollback();
-        }
-		
-				
-		//On persist le clan et ses joueurs pour trouver ceux qui partent et qui arrivent 
-		//pm = PMF.get().getPersistenceManager();
-		pm =null;
-		pm = PMF.get().getPersistenceManager();
-        try {
-        	pm.currentTransaction().begin();
-        	pm.makePersistent(daoCommunityClan);
-        	pm.currentTransaction().commit();
-        }
-	    catch(Exception e){
-	    	e.printStackTrace();
-	    	log.log(Level.SEVERE, "Exception while saving daoCommunityClan", e);
-        	pm.currentTransaction().rollback();
-        }
-	        
-
-		
-	
 		
 		//construction de la hashMap des id et name du ser
 		CommunityClan communityClan = TransformDtoObject.TransformCommunityDaoCommunityClanToCommunityClan(daoCommunityClan);
