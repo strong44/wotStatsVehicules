@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xmlWiki xmlns="http://wotachievement.appspot.com/">
+    <ACHIEVEMENTS>
+        <CATEGORY_ACHIEVEMENT NAME="Battle Hero Achievements">
+            <ACHIEVEMENT NAME="Top Gun">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/97/Warrior.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Top Gun&lt;/b&gt; - Destroy more enemy vehicles than any other player in your team during the battle (at least 6). &lt;br /&gt;If two or more players have destroyed equal amount vehicles, the achievement is granted to the player who has earned more XP for the battle, including additional XP provided to Premium account users. If the amount of XP is equal as well, the achievement is not granted."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Invader">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/77/Invader.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Invader&lt;/b&gt; - Capture the maximum number of points from the enemy base, but not less than 80.&lt;br /&gt;The achievement is granted on successful base capture, including only the points that were part of the base capture. If the battle ends in a draw, the achievement is granted to the first player to receive 80 or more capture points."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Sniper">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/8f/Sniper.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Sniper&lt;/b&gt; - Achieve at least 85% hits out of a minimum of ten shots fired with the potential damage of 1,000 HP and more. Non-penetrating hits are included, but hits on friendly units are not included. &lt;br /&gt;If two or more players have an equal hit ratio, the achievement is granted to the player with the highest potential damage. If two or more players have an equal amount of potential damage, the achievement is granted to the player who earned more XP for the battle, including additional XP provided to Premium Account users. If the amount of XP is equal as well, the achievement is not granted."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Defender">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/0d/Defender.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Defender&lt;/b&gt; - Reduce the amount of enemy capture points on a friendly base by 70 or more.&lt;br /&gt;If two or more players have reduced equal amount of capture points, the achievement is granted to the player who has earned more XP in the battle (including additional XP provided to Premium account users). If the amount of XP is equal as well, the achievement is not awarded."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Steel Wall">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/76/Steelwall.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Steel Wall&lt;/b&gt; - Receive the most hits (at least 11) of any player on your team, with potential damage of at least 1,000 HP, and survive.&lt;br /&gt;If two or more players have equal amount of hits, the achievement is granted to the player with the highest potential damage. If two or more players have equal amount of potential damage, the achievement is granted to the player who has earned more XP, including additional XP provided to Premium account users. If the amount of XP is equal as well, the achievement is not granted."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Confederate">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/b6/Supporter.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Confederate&lt;/b&gt; - Hit more enemy vehicles than any other player on your team (at least 6), which are subsequently destroyed by another player.&lt;br /&gt;If two or more players have equal amount of hits, the achievement is granted to the player who has earned more XP for the battle, including additional XP provided to Premium account users. If the amount of XP is equal as well, the achievement is not granted."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Scout">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/69/Scout.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Scout&lt;/b&gt; - Detect most enemy tanks and self-propelled guns than anyone else on your team (at least nine). The achievement is granted to the winning team only.&lt;br /&gt;If two or more players have detected equal number of enemy vehicles, the achievement is granted to the player who has earned more XP, including additional XP provided to Premium account users. If the amount of XP is equal as well, the achievement is not granted."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Patrol Duty">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/2a/Evileye.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Patrol Duty&lt;/b&gt; - Awarded to the player who helps the team damage at least six enemy vehicles by highlighting them. The tanks must be highlighted only by you when they take damage."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Brothers in Arms">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/c8/MedalBrothersInArms.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Brothers in Arms&lt;/b&gt; - Awarded to a platoon in which all platoon members destroy at least 3 enemy vehicles and survive in battle. Each platoon participant receive this title."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Crucial Contribution">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/6c/MedalCrucialContribution.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Crucial Contribution&lt;/b&gt; - Awarded to a platoon which destroyed at least 12 enemy vehicles in one battle. Each platoon participant receive this title."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Commemorative Achievements">
+            <ACHIEVEMENT NAME="Cool-Headed">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/a9/Cool-Headed.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Cool-Headed&lt;/b&gt; - Survive at least 10 ricochets and non-penetrations in a row from enemy players."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Lucky">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/a6/Lucky.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Lucky&lt;/b&gt; - Witness the destruction of an enemy vehicle by an enemy team player. You must be within 10 meters or less from the enemy vehicle at the moment of its destruction."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Spartan">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e6/Spartan.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Spartan&lt;/b&gt; - Survive a ricochet or non-penetrating shot from an enemy player. Your vehicle must have less than 10% of its hit points (HP) left and you must survive the battle."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Ranger">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e9/Ranger.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Ranger&lt;/b&gt; - Destroy all enemy light tanks (at least 3) in the course of one battle."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Epic Achievements (medals)">
+            <ACHIEVEMENT NAME="Bölter's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/8c/MedalBolter.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Bölter's Medal&lt;/b&gt; - With the release of Version 0.8.0, this medal is no longer being awarded.  Prior to 0.8.0, this was awarded for destroying seven or more enemy tanks and self-propelled guns with a tank or tank destroyer, or 10 or more vehicles with a self-propelled gun in one battle. The targets must be at least tier four enemy vehicles.  &lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Johannes_B%C3%B6lter&quot;&gt;Johannes Bölter&lt;/a&gt; was one of the most successful German tank aces of WWII. He participated in operations in the invasions of Poland, France, Greece and the Soviet Union, and the defense of France."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Radley-Walters’ Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/f8/MedalRadleyWalters.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Radley-Walters’ Medal&lt;/b&gt; - Awarded to players in the 5th or higher tier for destroying 8 or 9 enemy vehicles in one battle.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Sydney_Valpy_Radley-Walters&quot;&gt;Sydney Valpy Radley-Walters&lt;/a&gt; was a Canadian tank ace of the 27th Armored Regiment. In 1944–1945 he destroyed 18 German vehicles with his Sherman Firefly."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Pool’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e8/MedalLafayettePool.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Pool’s Medal&lt;/b&gt; - Awarded for destroying 10 or more enemy tanks and self-propelled guns with any vehicle. The targets must be at least tier four enemy vehicles.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Lafayette_G._Pool&quot;&gt;Lafayette G. Pool&lt;/a&gt; is widely recognized as the U.S. tank ace of aces, credited with 12 confirmed tank kills and 258 total armored vehicle and self-propelled gun kills."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Orlik's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/2b/MedalOrlik.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Orlik's Medal&lt;/b&gt; - Awarded for destroying three or more enemy tanks or tank destroyers with a light tank. The targets must be at least two tiers higher than the player's tank.&lt;br /&gt;Roman Edmund Orlik, a Polish Army sergeant, was a tank ace who knocked out 13 German tanks with his light TKS tankette in September, 1939."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Tamada Yoshio Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/ab/MedalTamadaYoshio.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Tamada Yoshio Medal&lt;/b&gt; - Awarded to a player who destroys at least three Self-Propelled Guns while driving a light tank, and survives the battle.  The targets must be at least two tiers higher than the player's tank.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/pwencycl.kgbudge.com/T/a/Tamada_Yoshio.htm&quot;&gt;Tamada Yoshio&lt;/a&gt; commanded the Japanese 4th Tank Regiment (&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Type_95_Ha-Go&quot;&gt;Type 95 Ha-Gō&lt;/a&gt; light tanks) in an attack that overran and destroyed twelve Russian artillery guns during the Second Sino-Japanese War in July 1939."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Lehvaslaiho’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/c5/MedalLehvaslaiho.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Lehvaslaiho’s Medal&lt;/b&gt; - Awarded for destroying two enemy vehicles with a medium tank. The targets must be at least two tiers higher than the player's tank.&lt;br /&gt;Reino Lehväslaiho was a Finnish tank ace who destroyed seven tanks and tank destroyers."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Oskin's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/5f/MedalOskin.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Oskin's Medal&lt;/b&gt; - Awarded for destroying three enemy vehicles with a medium tank. The targets must be at least two tiers higher than the player's tank.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/translate.googleusercontent.com/translate_c?hl=en&amp;amp;ie=UTF8&amp;amp;prev=_t&amp;amp;rurl=translate.google.com&amp;amp;sl=auto&amp;amp;tl=en&amp;amp;u=http://ru.wikipedia.orghttp://wiki.%25D0%259E%25D1%2581%25D1%258C%25D0%25BA%25D0%25B8%25D0%25BD,_%25D0%2590%25D0%25BB%25D0%25B5%25D0%25BA%25D1%2581%25D0%25B0%25D0%25BD%25D0%25B4%25D1%2580_%25D0%259F%25D0%25B5%25D1%2582%25D1%2580%25D0%25BE%25D0%25B2%25D0%25B8%25D1%2587&amp;amp;usg=ALkJrhjpXVNx9mRGQvqSSTSiVkFaqk_liw&quot;&gt;Alexander Oskin&lt;/a&gt;, a Hero of the Soviet Union, was a tank commander who destroyed three &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._Tiger_II&quot; title=&quot;Pz.Kpfw. Tiger II&quot;&gt;King Tigers&lt;/a&gt; with his &lt;a href=&quot;http://wiki.worldoftanks.com/T-34&quot; title=&quot;T-34&quot;&gt;T-34&lt;/a&gt; during a reconnaissance operation near Oglenduv on August 11, 1944."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Nichols’ Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/04/MedalNikolas.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Nichols’ Medal&lt;/b&gt; - Awarded for destroying four or more enemy vehicles with a medium tank. The targets must be at least two tiers higher than the player's tank.&lt;br /&gt;Alfie Nicolas was a British tank gunner. During the battle of Al Alamein he destroyed fourteen enemy vehicles."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Kolobanov's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/75/MedalKolobanov.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Kolobanov's Medal&lt;/b&gt; - Awarded to a player who stands alone against five or more enemy tanks or self-propelled guns and wins (this means that you can capture the enemy base by yourself when you are against five enemies and you will recieve the achievement.)&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Zinoviy_Kolobanov&quot;&gt;Colonel Zinoviy Kolobanov&lt;/a&gt; was a Soviet tank ace who destroyed 22 German tanks, 2 guns and 2 halftracks with his &lt;a href=&quot;http://wiki.worldoftanks.com/KV-1&quot; title=&quot;KV-1&quot;&gt;KV&lt;/a&gt; in battle on August 19, 1941."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Halonen's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3a/MedalHalonen.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Halonen's Medal&lt;/b&gt; - Awarded for destroying three or more enemy vehicles with a tank destroyer. The targets must be at least two tiers higher than the player's vehicle.&lt;br /&gt;&lt;a href=&quot;http://wiki.worldoftanks.com/Halonen%27s_Medal&quot; title=&quot;Halonen's Medal&quot;&gt;Erkki Halonen&lt;/a&gt;, a sergeant in the Finnish Army and a tank ace, destroyed three &lt;a href=&quot;http://wiki.worldoftanks.com/T-34&quot; title=&quot;T-34&quot;&gt;T-34&lt;/a&gt;, two &lt;a href=&quot;http://wiki.worldoftanks.com/KV-1&quot; title=&quot;KV-1&quot;&gt;KV-1&lt;/a&gt;, and two &lt;a href=&quot;http://wiki.worldoftanks.com/ISU-152&quot; title=&quot;ISU-152&quot;&gt;ISU-152&lt;/a&gt; with his &lt;a href=&quot;http://wiki.worldoftanks.com/StuG_III&quot; title=&quot;StuG III&quot;&gt;StuG III&lt;/a&gt; in battles during June and July, 1944."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Fadin's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e7/MedalFadin.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Fadin's Medal&lt;/b&gt; - Awarded for destroying the last enemy vehicle in the battle with the last shell remaining in the player's tank.&lt;br /&gt;A hero of the Soviet Union, &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/english.iremember.ru/tankers/68-fadin-alexander-mikhailovich.html&quot;&gt;Alexander Fadin&lt;/a&gt; was a &lt;a href=&quot;http://wiki.worldoftanks.com/T-34&quot; title=&quot;T-34&quot;&gt;T-34&lt;/a&gt; commander. Supported by one infantry platoon, Fadin managed to capture and hold the Dashukovka village for 5 hours with one tank, and destroyed 3 tanks, 1 halftrack, 2 mortars and 12 machinegun nests. His crew also shot down an enemy plane with his tank's coaxial machinegun."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Pascucci’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/01/MedalPascucci.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Pascucci’s Medal&lt;/b&gt; - Awarded for the destruction of three enemy self-propelled guns.&lt;br /&gt;Second Lieutenant &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Luigi_Arbib_Pascucci&quot;&gt;Luigi Arbib Pascucci&lt;/a&gt; was an Italian tank commander during World War Two. He fought with the Ariete Tank Division in North Africa. Pascucci fought in the Second Battle of El Alamein, where he sacrificed his life in a reckless frontal attack that enabled the rest of his company to escape encirclement."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Dumitru’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/cc/MedalDumitru.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Dumitru’s Medal&lt;/b&gt; - Awarded for the destruction of four enemy self-propelled guns.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/www.armchairgeneral.com/forums/showthread.php?t=72023&quot;&gt;Ion S. Dumitru&lt;/a&gt; was a Romanian tank ace. He fought in World War II for just twenty-five days, of which five on the German side, and, after Romania changed sides, twenty days against the Germans. On March 6th, 1945, Dumitru contributed to the destruction of six enemy tank destroyers and capture of a battery of 150 mm guns."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Burda's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/d1/MedalBurda.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Burda's Medal&lt;/b&gt; - Awarded for the destruction of five or more enemy self-propelled guns.&lt;br /&gt;Guards Colonel Alexander Burda was a Soviet tank ace and a Hero of the Soviet Union. On October 4, 1941, Burda organized an ambush and destroyed an enemy armored column, including 10 medium and light tanks, 2 trucks with antitank guns and 5 infantry vehicles. Not awarded to SPG drivers."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Billotte's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/b0/MedalBillotte.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Billotte's Medal&lt;/b&gt; - Awarded to players who destroy at least one enemy vehicle and survive the battle to victory despite receiving at least five different critical hits and 80% or more loss of hit points.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Pierre_Billotte&quot;&gt;Pierre Billotte&lt;/a&gt; was a captain in the French Army who destroyed 2 &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._IV&quot; title=&quot;Pz.Kpfw. IV&quot;&gt;Pz.Kpfw. IV&lt;/a&gt;, 11 &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._III&quot; title=&quot;Pz.Kpfw. III&quot;&gt;Pz.Kpfw. III&lt;/a&gt; and 2 guns with his &lt;a href=&quot;http://wiki.worldoftanks.com/B1&quot; title=&quot;B1&quot;&gt;Char B1 bis&lt;/a&gt; on May 16, 1940."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Bruno’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/f0/MedalBrunoPietro.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Bruno’s Medal&lt;/b&gt; - Awarded to players who destroy three or four enemy vehicles and survive the battle to victory despite receiving at least five different critical hits and 80% or more loss of hit points.&lt;br /&gt;Pietro Bruno was an Italian tank ace. For exceptional valor in the face of the enemy he was awarded the Gold Medal of Military Valor (Medaglia d'oro al Valore Militare), the highest Italian award."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Tarczay’s Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/a1/MedalTarczay.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Tarczay’s Medal&lt;/b&gt; - Awarded to players who destroy at least five enemy vehicles and survive the battle to victory despite receiving at least five different critical hits and 80% or more loss of hit points.&lt;br /&gt;&lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/forum.axishistory.com/viewtopic.php?t=102938#p913082&quot;&gt;Ervin Tarczay&lt;/a&gt; was a Hungarian tank ace. He fought with the Hungarian 2nd Armored Division and destroyed at least ten enemy vehicles."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Raseiniai Heroes' Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/cf/HeroesOfRassenay.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Raseiniai Heroes' Medal&lt;/b&gt; - Awarded to a player who destroys single-handedly all enemy vehicles (at least 14 vehicles).&lt;br /&gt;In June 1941, near the Lithuanian town of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/en.wikipedia.orghttp://wiki.Battle_of_Raseiniai&quot;&gt;Raseiniai&lt;/a&gt;, roughly 20 &lt;a href=&quot;http://wiki.worldoftanks.com/KV-1&quot; title=&quot;KV-1&quot;&gt;KV&lt;/a&gt; tanks of the Soviet 3rd Mechanized Corps met the assault of the 6th Panzer Division, with approximately 100 vehicles. A single &lt;a href=&quot;http://wiki.worldoftanks.com/KV-2&quot; title=&quot;KV-2&quot;&gt;KV-2&lt;/a&gt; tank managed to hold off the German advance for a full day while being pummeled by a variety of antitank weapons, until finally the KV-2 ran out of ammunition and was knocked out."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="De Langlade's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3a/MedalDeLanglade.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;De Langlade's Medal&lt;/b&gt; - Awarded to a player who in the course of one battle destroys four enemy vehicles within a base circle while they are attempting to capture the base. Enemy vehicles may attempt to capture the base all at once or in turn.&lt;br /&gt;On 13 September 1944, Colonel Paul Girot de Langlade's Groupement Tactique &quot;Langlade&quot; (G.T.L), outnumbered by over two to one, attacked a German 112th Panzer Regiment occupying the French village of Dompaire.  In the ensuing battle de Langlade's 16 &lt;a href=&quot;http://wiki.worldoftanks.com/M4_Sherman&quot; title=&quot;M4 Sherman&quot;&gt;M4&lt;/a&gt;A2 tanks and 4 &lt;a href=&quot;http://wiki.worldoftanks.com/M10_Wolverine&quot; title=&quot;M10 Wolverine&quot;&gt;M10&lt;/a&gt; tank destroyers, with support from French artillery and American fighter-bombers, destroyed 69 of 90 &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._V_Panther&quot; title=&quot;Pz.Kpfw. V Panther&quot;&gt;Pz.Kpfw. V Panther&lt;/a&gt; and &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._IV&quot; title=&quot;Pz.Kpfw. IV&quot;&gt;Pz.Kpfw. IV&lt;/a&gt; tanks."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Special Achievements (titles)">
+            <ACHIEVEMENT NAME="Master Gunner">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/28/ArmorPiercer.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Master Gunner&lt;/b&gt; - Achieve at least five armor penetrating hits in a row against enemy vehicles. The results of the next battle in a row using any vehicle also count towards this number, unless the sequence is broken by a miss, non-penetration or ricochet. The icon in the service record displays the longest sequence."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Hunter">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/4/44/Beasthunter.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Hunter&lt;/b&gt; - Destroy 100 or more of the following tanks: &lt;a href=&quot;http://wiki.worldoftanks.com/Jagdpanther&quot; title=&quot;Jagdpanther&quot;&gt;Jagdpanther&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Jagdtiger&quot; title=&quot;Jagdtiger&quot;&gt;Jagdtiger&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._V_Panther&quot; title=&quot;Pz.Kpfw. V Panther&quot;&gt;Pz.Kpfw. V Panther&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Panther/M10&quot; title=&quot;Panther/M10&quot;&gt;Panther/M10&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Panther_II&quot; title=&quot;Panther II&quot;&gt;Panther II&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._VI_Tiger&quot; title=&quot;Pz.Kpfw. VI Tiger&quot;&gt;Pz.Kpfw. VI Tiger&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._VI_Tiger_(P)&quot; title=&quot;Pz.Kpfw. VI Tiger (P)&quot;&gt;Pz.Kpfw. VI Tiger (P)&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._Tiger_II&quot; title=&quot;Pz.Kpfw. Tiger II&quot;&gt;Pz.Kpfw. Tiger II&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/L%C3%B6we&quot; title=&quot;Löwe&quot;&gt;Löwe&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/GW_Panther&quot; title=&quot;GW Panther&quot; class=&quot;mw-redirect&quot;&gt;GW Panther&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/GW_Tiger&quot; title=&quot;GW Tiger&quot; class=&quot;mw-redirect&quot;&gt;GW Tiger&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Jagdpanther_II&quot; title=&quot;Jagdpanther II&quot;&gt;Jagdpanther II&lt;/a&gt; and &lt;a href=&quot;http://wiki.worldoftanks.com/8,8_cm_PaK_43_Jagdtiger&quot; title=&quot;8,8 cm PaK 43 Jagdtiger&quot;&gt;8,8 cm PaK 43 Jagdtiger&lt;/a&gt;"/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="The Lion of Sinai">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/72/Sinai.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;The Lion of Sinai&lt;/b&gt; -The Lion of Sinai - Destroy at least 100 tanks of the IS series, and vehicles based on their chassis: &lt;a href=&quot;http://wiki.worldoftanks.com/IS&quot; title=&quot;IS&quot;&gt;IS&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/IS-3&quot; title=&quot;IS-3&quot;&gt;IS-3&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/IS-4&quot; title=&quot;IS-4&quot;&gt;IS-4&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/IS-6&quot; title=&quot;IS-6&quot;&gt;IS-6&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/IS-7&quot; title=&quot;IS-7&quot;&gt;IS-7&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/IS-8&quot; title=&quot;IS-8&quot;&gt;IS-8&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/ISU-152&quot; title=&quot;ISU-152&quot;&gt;ISU-152&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Object_704&quot; title=&quot;Object 704&quot;&gt;Object 704&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Object_261&quot; title=&quot;Object 261&quot;&gt;Object 261&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Object_268&quot; title=&quot;Object 268&quot;&gt;Object 268&lt;/a&gt; or &lt;a href=&quot;http://wiki.worldoftanks.com/Object_263&quot; title=&quot;Object 263&quot;&gt;Object 263&lt;/a&gt;"/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Patton Valley">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/af/Patton_Valley.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Patton Valley&lt;/b&gt; - Destroy 100 M46 Patton or M48A1 Patton III's."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Reaper">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/10/HandOfDeath.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Reaper&lt;/b&gt; - Destroy three or more enemy vehicles in a row with a single round each. The achievement is granted on completion of the sequence. The sequence can be continued in the next battle fought on any vehicle. The icon in the service record displays the longest sequence."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Kamikaze">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/19/Kamikaze.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Kamikaze&lt;/b&gt; - Destroy a higher-tier enemy vehicle by ramming it. You can only earn this achievement once per battle. The icon in the service record displays the number of times the achievement was awarded."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Mouse Trap">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/db/Mousebane.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Mouse Trap&lt;/b&gt; - Destroy 10 or more &lt;a href=&quot;http://wiki.worldoftanks.com/Maus&quot; title=&quot;Maus&quot;&gt;PzKpfw VIII Maus&lt;/a&gt; tanks. The icon in the service record displays the number of times the achievement was awarded."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Bombardier">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3f/Bombardier.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Bombardier&lt;/b&gt; - Awarded to the player who destroys two or more vehicles with one shot."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Master Tanker">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/be/TankExpert.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/52/TankExpertgray2.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Master Tanker&lt;/b&gt; - Destroy at least one of every type of enemy vehicle currently available in the game. In the event that new vehicles are added to any tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: U.S.A.">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/04/TankExpert2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/d0/TankExpertUSAgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: U.S.A.&lt;/b&gt; - Destroy at least one of each type from the American tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: Germany">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/36/TankExpert1.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/7b/TankExpertGermanygray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: Germany&lt;/b&gt; - Destroy at least one of each type from the German tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: France">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/2d/TankExpert4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/c4/TankExpertFrancegray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: France&lt;/b&gt; - Destroy at least one of each type from the French tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: U.S.S.R.">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/29/TankExpert0.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/10/TankExpertUSSRgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: U.S.S.R.&lt;/b&gt; - Destroy at least one of each type from the Soviet tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: United Kingdom">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1b/TankExpert5.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/f6/TankExpertBritgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: United Kingdom&lt;/b&gt; - Destroy at least one of each type from the United Kingdom tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expert: China">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/fa/TankExpert3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/95/TankExpertChinagray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expert: China&lt;/b&gt; - Destroy at least one of each type from the Chinese tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Senior Technical Engineer">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/ba/MechanicEngineer.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/95/MechanicEngineergray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Senior Technical Engineer&lt;/b&gt; - Research all vehicles in all tech trees. In the event that new vehicles are added to any tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, U.S.A.">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/63/MechanicEngineer2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/52/MechanicEngineerUSAgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, U.S.A.&lt;/b&gt; - Research all vehicles in the American tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, Germany">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e5/MechanicEngineer1.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3f/MechanicEngineerGermanygray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, Germany&lt;/b&gt; - Research all vehicles in the German tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, France">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/d9/MechanicEngineer4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/21/MechanicEngineerFrancegray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, France&lt;/b&gt; - Research all vehicles in the French tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, U.S.S.R.">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/03/MechanicEngineer0.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e5/MechanicEngineerUSSRgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, U.S.S.R.&lt;/b&gt; - Research all vehicles in the Soviet tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, United Kingdom">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/d2/MechanicEngineer5.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1f/MechanicEngineerBritgray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, United Kingdom&lt;/b&gt; - Research all vehicles in the United Kingdom tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Technical Engineer, China">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e4/MechanicEngineer3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1e/MechanicEngineerChinagray.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Technical Engineer, China&lt;/b&gt; - Research all vehicles in the Chinese tech tree. In the event that new vehicles are added to the tech tree, the icon becomes gray in the player's Service Record."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Sharpshooter">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/dc/TitleSniper.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Sharpshooter&lt;/b&gt; - Hit an enemy vehicle ten or more times in a row without missing. The results of the next battle in a row using any vehicle also count towards this number, unless the sequence is broken by a miss. The icon in the service record displays the longest sequence."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Invincible">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/ec/Invincible.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Invincible&lt;/b&gt; - Survive 5 or more consecutive battles without taking any damage (not including battles fought using self-propelled guns). Battles fought using self-propelled guns do not break the sequence, but are not included either. The icon in the service record displays the longest sequence."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Survivor">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/7e/Diehard.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Survivor&lt;/b&gt; - Survive 20 or more consecutive battles. Battles fought using self-propelled guns do not break the sequence, but are not included either."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Raider">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e7/Raider.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Raider&lt;/b&gt; - Capture the enemy base and remain undetected during the entire battle. The icon in the service record displays the number of times the achievement was awarded."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Step Achievements (medals)">
+            <ACHIEVEMENT NAME="Kay's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/6f/MedalKay4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/10/MedalKay3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e8/MedalKay2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/c6/MedalKay1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Kay's Medal&lt;/b&gt; - Awarded for achieving the Battle Hero status in four classes:Class IV - 1 time Class III - 10 times Class II - 100 times Class I - 1,000 times&lt;p&gt;&lt;br /&gt;Douglas Kay, a British Army sergeant, and gunner on a Sherman Firefly, participated in the Allied landing in Normandy and was famous for the popularization of the history of tank warfare.&lt;br /&gt;&lt;i&gt;Note: Only the medals listed under &quot;Battle Hero Achievements&quot; above are counted in the “Kay’s Medal” achievement.&lt;/i&gt;&lt;/p&gt;"/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Carius' Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/71/MedalCarius4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/98/MedalCarius3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/7/7d/MedalCarius2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/ce/MedalCarius1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Carius' Medal&lt;/b&gt; - Awarded for the destruction of enemy tanks and self-propelled guns in four classes:Class IV - 10 vehicles Class III - 100 vehicles Class II - 1,000 vehicles Class I - 10,000 vehicles&lt;br /&gt;Otto Carius was one of the most efficient tank aces of WWII. He commanded the &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._38_(t)&quot; title=&quot;Pz.Kpfw. 38 (t)&quot;&gt;Pz.Kpfw. 38 (t)&lt;/a&gt;, the &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._VI_Tiger&quot; title=&quot;Pz.Kpfw. VI Tiger&quot;&gt;Pz.Kpfw. VI Tiger&lt;/a&gt; and the &lt;a href=&quot;http://wiki.worldoftanks.com/Jagdtiger&quot; title=&quot;Jagdtiger&quot;&gt;Jagdtiger&lt;/a&gt; tank destroyer during his impressive career."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Knispel's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/91/MedalKnispel4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/cc/MedalKnispel3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/d6/MedalKnispel2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/9c/MedalKnispel1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Knispel's Medal&lt;/b&gt; - Awarded for the total amount of damage caused and received in four classes: Class IV - 10,000 HP Class III - 100,000 HP Class II - 1,000,000 HP Class I - 10,000,000 HP&lt;br /&gt;Kurt Knispel, a German tank ace during WWII, participated in battles on both the Western and Eastern Fronts fighting on &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._II&quot; title=&quot;Pz.Kpfw. II&quot;&gt;Pz.Kpfw. II&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._III&quot; title=&quot;Pz.Kpfw. III&quot;&gt;Pz.Kpfw. III&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._IV&quot; title=&quot;Pz.Kpfw. IV&quot;&gt;Pz.Kpfw. IV&lt;/a&gt;, &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._VI_Tiger&quot; title=&quot;Pz.Kpfw. VI Tiger&quot;&gt;Pz.Kpfw. VI Tiger&lt;/a&gt;, and &lt;a href=&quot;http://wiki.worldoftanks.com/Pz.Kpfw._Tiger_II&quot; title=&quot;Pz.Kpfw. Tiger II&quot;&gt;Pz.Kpfw. Tiger II&lt;/a&gt;."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Popel's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/55/MedalPoppel4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/95/MedalPoppel3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/fe/MedalPoppel2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/0d/MedalPoppel1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Popel's Medal&lt;/b&gt; - Awarded for detecting enemy tanks and self-propelled guns in all battles, in four classes: Class IV - 20 vehicles Class III - 200 vehicles Class II - 2,000 vehicles Class I - 20,000 vehicles&lt;br /&gt;Lieutenant General of Tank Forces, Nikolay Popel, a Soviet military leader and political worker, organized a raid against the enemy rear using captured vehicles during the battle of Dubno in the Summer of 1941."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Abrams' Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1d/MedalAbrams4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/b8/MedalAbrams3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/80/MedalAbrams2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/27/MedalAbrams1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Abrams' Medal&lt;/b&gt; - Awarded in one of four classes for the total number of team victories in which the player survived the battle: Class IV - 5 victories Class III - 50 victories Class II - 500 victories Class I - 5,000 victories&lt;br /&gt;General Creighton Abrams commanded US armored forces during WWII and the Vietnam War, earning a reputation as an aggressive and successful commander."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Leclerc's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1d/MedalLeClerc4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3d/MedalLeClerc3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/62/MedalLeClerc2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/83/MedalLeClerc1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Leclerc's Medal&lt;/b&gt; - Awarded for the total amount of the player's enemy base capture points. An unsuccessful or reduced capture does not count toward this number. The award is established in four classes: Class IV - 30 points Class III - 300 points Class II - 3,000 points Class I - 30,000 points&lt;br /&gt;Philippe Leclerc was a General of the Free French Forces during WWII and one of the leaders of the Paris liberation operation."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Lavrinenko's Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/c/c2/MedalLavrinenko4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/4/4a/MedalLavrinenko3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/ee/MedalLavrinenko2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/a5/MedalLavrinenko1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Lavrinenko's Medal&lt;/b&gt; - Awarded for reducing the total number of capture points of a friendly base, up to 100 points per battle. This award is established in four classes: Class IV - 30 points Class III - 300 points Class II - 3,000 points Class I - 30,000 points&lt;br /&gt;Dmitry Lavrinenko, a Hero of the Soviet Union, Guards Lieutenant, and tank ace was recognized as the most efficient Soviet tanker, destroying 52 tanks in 28 battles over the course of just two months."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Ekins' Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/94/MedalEkins4.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/13/MedalEkins3.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/9/9b/MedalEkins2.png"/>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/87/MedalEkins1.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Ekins' Medal&lt;/b&gt; - Awarded in four classes for destroying tier 8, 9 or 10 enemy tanks and self-propelled guns: Class IV - 3 vehicles Class III - 30 vehicles Class II - 300 vehicles Class I - 3,000 vehicles&lt;br /&gt;Joe Ekins was a private in the Northamptonshire Division of the British Territorial Army. A number of sources confirm Ekins as the final nemesis of famous German tank ace Michael Wittmann."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Rise of the Americas Achievements (medals)">
+            <ACHIEVEMENT NAME="Feelin’ Peachy">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/59/B6-peachy.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Feelin’ Peachy&lt;/b&gt; - Awarded to each member of the clan which, after the first day of the &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1942-clan-wars-changes/&quot;&gt;Rise of the Americas: Unclaimed Glory&lt;/a&gt; event, had captured the province of Atlanta, Georgia."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Deep Dish Delivery">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/6/6a/B5-deep.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Deep Dish Delivery&lt;/b&gt; - Awarded to each member of the clan which, after the first day of the &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1942-clan-wars-changes/&quot;&gt;Rise of the Americas: Unclaimed Glory&lt;/a&gt; event, had captured the province of Chicago, Illinois."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="No Sleep ‘till Brooklyn">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/0/04/B8-sleep.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;No Sleep ‘till Brooklyn&lt;/b&gt; – Awarded to each member of the clan which won the &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1979-no-sleep-till-brooklyn-rumble/&quot;&gt;No Sleep Till Brooklyn Rumble&lt;/a&gt;.&lt;br /&gt;Note, this award was originally intended for each member of the clan which, after the first day of the &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1942-clan-wars-changes/&quot;&gt;Rise of the Americas: Unclaimed Glory&lt;/a&gt; event, had captured the province of New York City, New York.  However, in the end, the final battle ended in a draw and New York City lay unclaimed.  The No Sleep Till Brooklyn Rumble tournament was held February 1st through the 3rd, 2013, and the medal was awarded to &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/community/clans/1000002285-W-A-R/&quot;&gt;the victors&lt;/a&gt;."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Show Me the Money">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3e/B4-money.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Show Me the Money&lt;/b&gt; - Awarded to each member of the clan which, after the first day of the &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1942-clan-wars-changes/&quot;&gt;Rise of the Americas: Unclaimed Glory&lt;/a&gt; event, had captured the province of Riverlands, Missouri."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Home of the Braves">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/25/B3-home.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Home of the Braves&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1983-clan-wars-rise-of-the-americas-stage-01/&quot;&gt;Rise of the Americas Stage 1&lt;/a&gt;, held the province of Atlanta, Georgia."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Capwned">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/b/b2/B1-cap.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Capwned&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1983-clan-wars-rise-of-the-americas-stage-01/&quot;&gt;Americas Stage 1&lt;/a&gt;, held the province of Chicago, Illinois."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Fuhgeddaboudit">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/5/5c/B7-about.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Fuhgeddaboudit&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1983-clan-wars-rise-of-the-americas-stage-01/&quot;&gt;Rise of the Americas Stage 1&lt;/a&gt;, held the province of New York City, New York."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="The Mighty Mo">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/8/83/B2-mo.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;The Mighty Mo&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/1983-clan-wars-rise-of-the-americas-stage-01/&quot;&gt;Rise of the Americas Stage 1&lt;/a&gt;, held the province of Riverlands, Missouri."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Messed With Texas">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e0/Messed-with-texas.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Messed With Texas&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2044-rise-americas-stage-ii/&quot;&gt;Rise of the Americas Stage II&lt;/a&gt;, held the province of San Antonio, Texas."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Rushmore, Capfast">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/d/da/Rushmore%2C-capfast.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Rushmore, Capfast&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2044-rise-americas-stage-ii/&quot;&gt;Rise of the Americas Stage II&lt;/a&gt;, held the province of Missouri Plateau, South Dakota."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Butting Heads">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/2/28/Butting-heads.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Butting Heads&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2044-rise-americas-stage-ii/&quot;&gt;Rise of the Americas Stage II&lt;/a&gt;, held the province of Big Horn, Wyoming."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Mile High Ranger">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/e/e8/Mile-high-ranger.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Mile High Ranger&lt;/b&gt; -Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2044-rise-americas-stage-ii/&quot;&gt;Rise of the Americas Stage II&lt;/a&gt;, held the province of Front Range, Colorado."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Needs More Salt">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/1/1e/Needs-more-salt.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Needs More Salt&lt;/b&gt; -Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2064-rise-americas-stage-iii-iv/&quot;&gt;Rise of the Americas Stage III&lt;/a&gt;, held the province of Ogden, Utah."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Tankz N The Hood">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/f/f8/Tankz-n-the-hood.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Tankz N The Hood&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2064-rise-americas-stage-iii-iv/&quot;&gt;Rise of the Americas Stage III&lt;/a&gt;, held the province of Hood, Oregon."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Sand Crawlers">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/3/3d/Sand-crawler.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Sand Crawlers&lt;/b&gt; - Awarded to each member of the clan which, after the end of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2064-rise-americas-stage-iii-iv/&quot;&gt;Rise of the Americas Stage III&lt;/a&gt;, held the province of Death Valley, California."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Brave New World">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/a/af/Brave-new-world.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Brave New World&lt;/b&gt; - Awarded to each member of the clan which, held any land in the U.S. at any time during the whole event of &lt;a rel=&quot;nofollow&quot; target=&quot;_blank&quot; class=&quot;external text&quot; href=&quot;/worldoftanks.com/news/2141-rise-americas-winners/&quot;&gt;Rise of the Americas&lt;/a&gt;."/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+        <CATEGORY_ACHIEVEMENT NAME="Clan Wars Campaigns Achievements (medals)">
+            <ACHIEVEMENT NAME="Legendary">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/8/8f/Legendary-Campaigns.png/70px-Legendary-Campaigns.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Legendary&lt;/b&gt; - Awarded to each member of the top clan of a Clan Wars Campaign."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Indestructible">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/4/4b/Indestructible-Campaigns.png/70px-Indestructible-Campaigns.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Indestructible&lt;/b&gt; - Awarded to each member of the second place clan of a Clan Wars Campaign."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Veteran">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/0/0f/Veteran-Campaigns.png/70px-Veteran-Campaigns.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Veteran&lt;/b&gt; - Awarded to each member of the third place clan of a Clan Wars Campaign."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="By Iron and Blood">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/8/83/By-iron-and-blood.png/70px-By-iron-and-blood.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;By Iron and Blood&lt;/b&gt; - Awarded to members of the clan with the highest total Victory Points by the end of Clan Wars Campaigns Stage One: Landlords."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Magnate">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/7/74/Magnate.png/70px-Magnate.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Magnate&lt;/b&gt; - Awarded to members of the clan with the highest total Victory Points by the end of Clan Wars Campaigns Stage Two: Rise and Fall."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Iron Fist">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/e/e4/Iron-fist.png/70px-Iron-fist.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Iron Fist&lt;/b&gt; - Awarded to members of the clan with the highest total Victory Points by the end of Clan Wars Campaigns Stage III: Revolution Epoch."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Ultimate Supremacy">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/1/1d/Ultimate-Supremacy.png/70px-Ultimate-Supremacy.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Ultimate Supremacy&lt;/b&gt; - Awarded to members of the clan receiving the largest amount of VP during Clan Wars Campaigns Stage IV: World Domination."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Campaign Participant">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/9/97/Participant-Campaigns.png/70px-Participant-Campaigns.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Campaign Participant&lt;/b&gt; - Awarded to players who participated in at least one battle during a Clan Wars Campaign."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Nevermore Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/2/21/Nevermore.png/70px-Nevermore.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Nevermore Medal&lt;/b&gt; - Awarded to the members of the clan who owned the Maryland Province at the end of Clan Wars Campaigns: Landlords Stage."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Gatekeepers Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/1/16/Gatekeepers.png/70px-Gatekeepers.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Gatekeepers Medal&lt;/b&gt; - Awarded to the members of the clan who owned the Prince Albert Island Province at the end of Clan Wars Campaigns: Landlords Stage."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="White Fang Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/d/dd/WhiteFang.png/70px-WhiteFang.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;White Fang Medal&lt;/b&gt; - Awarded to the members of the clan who owned the Klondike Province at the end of Clan Wars Campaigns: Landlords Stage."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Expulsion and Plunder Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/6/66/Expulsion-and-plunder.png/70px-Expulsion-and-plunder.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Expulsion and Plunder Medal&lt;/b&gt; - Awarded to members of the clan receiving the largest amount of Gold ransacking provinces during Clan Wars Campaigns Stage Two: Rise and Fall."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="With Fire and Sword Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/0/03/With-fire-and-sword.png/70px-With-fire-and-sword.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;With Fire and Sword Medal&lt;/b&gt; - Awarded to members of the clan who pacifies the largest number of riots during Clan Wars Campaigns Stage III: Revolution Epoch."/>
+            </ACHIEVEMENT>
+            <ACHIEVEMENT NAME="Crusher Medal">
+                <SRC_IMG>
+                    <SRC VALUE="http://wiki.worldoftanks.com/images/thumb/7/7a/Crusher.png/70px-Crusher.png"/>
+                </SRC_IMG>
+                <DESCRIPTION VALUE="&lt;b&gt;Crusher Medal&lt;/b&gt; - Awarded to members of the clan who removes (by conquering their last province) the most clans from the Global Map during Clan Wars Campaigns Stage IV: World Domination. "/>
+            </ACHIEVEMENT>
+            <DESCRIPTION VALUE="Desccription de la ctégorie de médailles"/>
+        </CATEGORY_ACHIEVEMENT>
+    </ACHIEVEMENTS>
+</xmlWiki>

@@ -1,0 +1,17 @@
+<!-- Indices written at Wed, 9 Sep 2015 08:31:33 CEST -->
+
+<datastore-indexes>
+
+    <!-- Used 1 time in query history -->
+    <datastore-index kind="DaoCommunityClan2" ancestor="false" source="auto">
+        <property name="idClan" direction="asc"/>
+        <property name="dateCommunityClan" direction="desc"/>
+    </datastore-index>
+
+    <!-- Used 9 times in query history -->
+    <datastore-index kind="DaoCommunityAccount2" ancestor="false" source="auto">
+        <property name="idUser" direction="asc"/>
+        <property name="dateCommunityAccount" direction="desc"/>
+    </datastore-index>
+
+</datastore-indexes>

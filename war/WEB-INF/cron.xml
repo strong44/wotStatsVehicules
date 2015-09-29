@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+  <cron>
+    <url>/cronPersistPlayersStats?clanId=500006074</url>
+    <description>Persist all stats of NVS users</description>
+    <schedule>every day 03:00</schedule>
+     <timezone>Europe/Paris</timezone>
+  </cron>
+  
+<!--   <cron>
+    <url>/cronDeletePlayersStats?nbDelete=80</url>
+    <description>Delete some stats of users</description>
+    <schedule>every day 04:00</schedule>
+     <timezone>Europe/Paris</timezone>
+  </cron>
+  -->
+  
+  <cron>
+    <url>/cronAmazone</url>
+    <description>cronAmazone</description>
+    <schedule>every 2 hours</schedule>
+     <timezone>Europe/Paris</timezone>
+  </cron>
+
+</cronentries>
