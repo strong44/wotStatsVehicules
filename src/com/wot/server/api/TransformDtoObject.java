@@ -1,5 +1,6 @@
 package com.wot.server.api;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import com.wot.server.CronPersistPlayersStats;
 import com.wot.server.DaoCommunityAccount2;
 import com.wot.server.DaoCommunityClan2;
 import com.wot.server.DaoDataCommunityAccount2;
@@ -21,77 +23,23 @@ import com.wot.shared.DataCommunityClanMembers;
 import com.wot.shared.DataCommunityMembers;
 import com.wot.shared.DataPlayerInfos;
 import com.wot.shared.DataPlayerTankRatings;
+import com.wot.shared.DataPlayerTankRatingsStatistics;
+import com.wot.shared.DataTankEncyclopedia;
+import com.wot.shared.DataWnEfficientyTank;
 import com.wot.shared.PlayersInfos;
 import com.wot.shared.Statistics;
 //import com.wot.server.DaoDataCommunityAccountStats;
 
 public class TransformDtoObject {
 
-//	public static DaoClan TransformClanToDaoClan(Clan clan ) {
-//		
-//		DaoClan daoClan = new DaoClan();
-//		daoClan.setStatus( clan.getStatus());
-//		
-//		daoClan.setItems(TransformItemsDataClanToDaoItemsDataClan(clan.getItems()));
-//		return daoClan;
-//	}
-//
-//	public static DaoDataClan TransformDataClanToDaoDataClan(DataClan dataclan ) {
-//		
-//		DaoDataClan daoDataClan = new DaoDataClan();
-//		daoDataClan.setItems(TransformItemsDataClanToDaoItemsDataClan(dataclan.getItems()));
-//		return daoDataClan;
-//	}
-//	
-//	//transforme la liste des itemsDataclan
-//	public static List<DaoItemsDataClan> TransformItemsDataClanToDaoItemsDataClan(List<ItemsDataClan> itemsDataclan ) {
-//		
-//		List<DaoItemsDataClan> listDaoItemsDataClan = new ArrayList<DaoItemsDataClan>();
-//		
-//		//transform each ItemsDataClan to DAOItemsDataClan
-//		for (ItemsDataClan myItemsDataClan : itemsDataclan) {
-//			listDaoItemsDataClan.add(TransformItemsDataClanToDaoItemsDataClan(myItemsDataClan));
-//		}
-//		return listDaoItemsDataClan;
-//		
-//	}
-//	
-//	//transforme un itemsDataclan
-//	public static DaoItemsDataClan TransformItemsDataClanToDaoItemsDataClan(ItemsDataClan itemsDataclan ) {
-//		
-//		DaoItemsDataClan daoItemsDataClan = new DaoItemsDataClan();
-//
-//		daoItemsDataClan.setClan_color(itemsDataclan.getClan_color());
-//		
-//		
-//		daoItemsDataClan.setCreated_at(itemsDataclan.getCreated_at());
-//		
-//		daoItemsDataClan.setId(itemsDataclan.getId());
-//		
-//		daoItemsDataClan.setMember_count(itemsDataclan.getMember_count());
-//		
-//		
-//		daoItemsDataClan.setName(itemsDataclan.getName());
-//		
-//		
-//		
-//		return daoItemsDataClan;
-//		
-//	}
-	
-//	//== Tranform datas CLAN and members 
-//	public static DaoCommunityClan TransformCommunityClanToDaoCommunityClan(CommunityClan communityClan ) {
-//		
-//		DaoCommunityClan daoCommunityClan = new DaoCommunityClan();
-//		daoCommunityClan.setStatus( communityClan.getStatus());
-//		daoCommunityClan.setStatus_code(communityClan.getStatus_code());
-//		
-//		daoCommunityClan.setIdClan(communityClan.getIdClan());
-//		daoCommunityClan.setDateCommunityClan(communityClan.getDateCommunityClan());
-//		
-//		daoCommunityClan.setData(TransformDataCommunityClanToDaoDataCommunityClan(communityClan.getData()));
-//		return daoCommunityClan;
-//	}
+	static {
+		try {
+			CronPersistPlayersStats.generateTankEncyclopedia();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	//== new  
 	public static CommunityClan TransformCommunityDaoCommunityClanToCommunityClan(DaoCommunityClan2 daoCommunityClan ) {
@@ -174,14 +122,31 @@ public class TransformDtoObject {
 
 	
 	public static CommunityAccount TransformDaoCommunityAccountToCommunityAccount(DaoCommunityAccount2 daoAccount) {
-		// TODO Auto-generated method stub
+	
 		CommunityAccount myCommunityAccount = new CommunityAccount();
-		//myCommunityAccount.setStatus_code(daoAccount.getStatus_code());
+	
 		myCommunityAccount.setIdUser(daoAccount.getIdUser());
-		//myCommunityAccount.setDateCommunityAccount(daoAccount.getDateCommunityAccount());
+		//
 		myCommunityAccount.setName(daoAccount.getName());
-		//bug here data is null !!
-		myCommunityAccount.setData(TransformDaoDataCommunityAccountToDataCommunityAccount(daoAccount.getData()));
+		
+		myCommunityAccount.setDateCommunityAccount(daoAccount.getDateCommunityAccount());
+		
+		DaoDataCommunityAccount2 myDaoDataCommunityAccount2 = daoAccount.getData();
+		
+		for (DaoDataCommunityAccountStatsVehicules myDaoDataCommunityAccountStatsVehicules : myDaoDataCommunityAccount2.getStatsVehicules())
+		{
+			DataPlayerTankRatingsStatistics myDataPlayerTankRatingsStatistics = new DataPlayerTankRatingsStatistics();
+		
+			myDataPlayerTankRatingsStatistics.setBattles(myDaoDataCommunityAccountStatsVehicules.getBattle_count());
+			myDataPlayerTankRatingsStatistics.setWins(myDaoDataCommunityAccountStatsVehicules.getWin_count());
+			myDataPlayerTankRatingsStatistics.setMark_of_mastery(myDaoDataCommunityAccountStatsVehicules.getMark_of_mastery());
+			myDataPlayerTankRatingsStatistics.setTank_id(myDaoDataCommunityAccountStatsVehicules.getTank_id());
+			
+			DataTankEncyclopedia myDataTankEncyclopedia = CronPersistPlayersStats.tankEncyclopedia.getData().get(myDaoDataCommunityAccountStatsVehicules.getTank_id()) ;
+		
+			myDataPlayerTankRatingsStatistics.setTankName(myDataTankEncyclopedia.getName()); 
+			myCommunityAccount.listTankStatistics.add(myDataPlayerTankRatingsStatistics);
+		}
 		
 		return myCommunityAccount;
 	}
@@ -196,6 +161,10 @@ public class TransformDtoObject {
 		AllStatistics allStatistics = new AllStatistics();
 		myDataPlayerInfos.setStatistics(statistics);
 		myDataPlayerInfos.getStatistics().setAllStatistics(allStatistics);
+		//data.getStatsVehicules();
+		
+		//myDataPlayerInfos.
+		
 		
 //		if(data.getStats().getBattle_avg_performanceCalc() != null)
 //			myDataPlayerInfos.getStatistics().getAllStatistics().setBattle_avg_performanceCalc(data.getStats().getBattle_avg_performanceCalc());
@@ -332,32 +301,13 @@ public class TransformDtoObject {
 
 	private static DaoDataCommunityAccountStatsVehicules TransformDataCommunityAccountStatsVehiculeToDaoDataCommunityAccountStatsVehicule(
 			DataPlayerTankRatings myDataPlayerTankRatings) {
-		// TODO Auto-generated method stub
-		/**
-		 * 	/**
-	 * {
-        "spotted": 0, 
-        "localized_name": "KV-1S", 
-        "name": "KV-1s", 
-        "level": 6, 
-        "damageDealt": 0, 
-        "survivedBattles": 0, 
-        "battle_count": 1400, 
-        "nation": "ussr", 
-        "image_url": "/static/2.7.0/encyclopedia/tankopedia/vehicle/small/ussr-kv-1s.png", 
-        "frags": 0, 
-        "win_count": 773, 
-        "class": "heavyTank"
-      },  */
+		
 		DaoDataCommunityAccountStatsVehicules myDaoDataCommunityAccountStatsVehicules = new DaoDataCommunityAccountStatsVehicules();
 		myDaoDataCommunityAccountStatsVehicules.setBattle_count(myDataPlayerTankRatings.getStatistics().getBattles());
-		//myDaoDataCommunityAccountStatsVehicules.setImage_url(myDataPlayerTankRatings.getImage_url());
-		//myDaoDataCommunityAccountStatsVehicules.setLevel(myDataPlayerTankRatings.getLevel());
-		//myDaoDataCommunityAccountStatsVehicules.setLocalized_name(myDataPlayerTankRatings.getLocalized_name());
-		//myDaoDataCommunityAccountStatsVehicules.setName(myDataPlayerTankRatings.getName());
-		//myDaoDataCommunityAccountStatsVehicules.setNation(myDataPlayerTankRatings.getNation());
 		myDaoDataCommunityAccountStatsVehicules.setWin_count(myDataPlayerTankRatings.getStatistics().getWins());
 		myDaoDataCommunityAccountStatsVehicules.setMark_of_mastery(myDataPlayerTankRatings.getMark_of_mastery());
+		myDaoDataCommunityAccountStatsVehicules.setTankId(myDataPlayerTankRatings.getTank_id());
+		
 		return myDaoDataCommunityAccountStatsVehicules;
 	}
 
@@ -518,50 +468,50 @@ public class TransformDtoObject {
 //		return myCommunityAccount;
 //	}
 
-	public static List<CommunityAccount> TransformPlayersInfosToListCommunityAccount(PlayersInfos playerRatings) {
-	/**
-	 * {"status":"ok","count":2,"data":{ 
-		"461":{ 
-		"spotted":{ 
-		"place":97640,"value":28440},"dropped_ctf_points":{ 
-		"place":360995,"value":12639},"battle_avg_xp":{ 
-		"place":94606,"value":650},"battles":{ 
-		"place":288113,"value":18370},"damage_dealt":{ 
-		"place":254542,"value":18500952},"frags":{ 
-		"place":209141,"value":18488},"ctf_points":{ 
-		"place":873803,"value":14755},"integrated_rating":{ 
-		"place":173662,"value":18},"xp":{ 
-		"place":147710,"value":11943200},"battle_avg_performance":{ 
-		"place":295870,"value":54},"battle_wins":{ 
-		"place":237633,"value":9886}},
-		"462":{ 
-		"spotted":{ 
-		"place":165842,"value":24130},"dropped_ctf_points":{ 
-		"place":364655,"value":12580},"battle_avg_xp":{ 
-		"place":869330,"value":472},"battles":{ 
-		"place":545346,"value":14467},"damage_dealt":{ 
-		"place":475334,"value":13284143},"frags":{ 
-		"place":347706,"value":14965},"ctf_points":{ 
-		"place":186236,"value":29660},"integrated_rating":{ 
-		"place":526707,"value":6},"xp":{ 
-		"place":543957,"value":6829602},"battle_avg_performance":{ 
-		"place":128047,"value":56},"battle_wins":{ 
-		"place":420199,"value":8072}}}}
-	 */
-		List<CommunityAccount> myListCommunityAccount = new ArrayList<CommunityAccount>();
-		
-		Set<Entry<String, DataPlayerInfos>>  set = playerRatings.getData().entrySet();
-		
-		for(Entry<String, DataPlayerInfos> entry :set) {
-			CommunityAccount myCommunityAccount = new CommunityAccount();
-			myCommunityAccount.setIdUser(entry.getKey());
-			myCommunityAccount.setData(entry.getValue());
-			//
-			//
-			myListCommunityAccount.add(myCommunityAccount);
-		}
-		return myListCommunityAccount;
-	}
+//	public static List<CommunityAccount> TransformPlayersInfosToListCommunityAccount(PlayersInfos playerRatings) {
+//	/**
+//	 * {"status":"ok","count":2,"data":{ 
+//		"461":{ 
+//		"spotted":{ 
+//		"place":97640,"value":28440},"dropped_ctf_points":{ 
+//		"place":360995,"value":12639},"battle_avg_xp":{ 
+//		"place":94606,"value":650},"battles":{ 
+//		"place":288113,"value":18370},"damage_dealt":{ 
+//		"place":254542,"value":18500952},"frags":{ 
+//		"place":209141,"value":18488},"ctf_points":{ 
+//		"place":873803,"value":14755},"integrated_rating":{ 
+//		"place":173662,"value":18},"xp":{ 
+//		"place":147710,"value":11943200},"battle_avg_performance":{ 
+//		"place":295870,"value":54},"battle_wins":{ 
+//		"place":237633,"value":9886}},
+//		"462":{ 
+//		"spotted":{ 
+//		"place":165842,"value":24130},"dropped_ctf_points":{ 
+//		"place":364655,"value":12580},"battle_avg_xp":{ 
+//		"place":869330,"value":472},"battles":{ 
+//		"place":545346,"value":14467},"damage_dealt":{ 
+//		"place":475334,"value":13284143},"frags":{ 
+//		"place":347706,"value":14965},"ctf_points":{ 
+//		"place":186236,"value":29660},"integrated_rating":{ 
+//		"place":526707,"value":6},"xp":{ 
+//		"place":543957,"value":6829602},"battle_avg_performance":{ 
+//		"place":128047,"value":56},"battle_wins":{ 
+//		"place":420199,"value":8072}}}}
+//	 */
+//		List<CommunityAccount> myListCommunityAccount = new ArrayList<CommunityAccount>();
+//		
+//		Set<Entry<String, DataPlayerInfos>>  set = playerRatings.getData().entrySet();
+//		
+//		for(Entry<String, DataPlayerInfos> entry :set) {
+//			CommunityAccount myCommunityAccount = new CommunityAccount();
+//			myCommunityAccount.setIdUser(entry.getKey());
+//			myCommunityAccount.setData(entry.getValue());
+//			//
+//			//
+//			myListCommunityAccount.add(myCommunityAccount);
+//		}
+//		return myListCommunityAccount;
+//	}
 
 	public static List<DataPlayerInfos> TransformPlayerInfosToListDataPlayerInfos(PlayersInfos playersInfos) {
 		// TODO Auto-generated method stub

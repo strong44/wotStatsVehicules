@@ -54,10 +54,22 @@ public class DaoDataCommunityAccountStatsVehicules implements Serializable {
 	@Persistent
 	private int mark_of_mastery;
 
+	@Persistent
+	private int tank_id;
+
 	
 	//======== getter setter ===============
+	
 	public Integer getWin_count() {
 		return win_count;
+	}
+
+	public int getTank_id() {
+		return tank_id;
+	}
+
+	public void setTank_id(int tank_id) {
+		this.tank_id = tank_id;
 	}
 
 	public void setWin_count(Integer win_count) {
@@ -80,6 +92,11 @@ public class DaoDataCommunityAccountStatsVehicules implements Serializable {
 
 	public void setMark_of_mastery(int mark_of_mastery) {
 		this.mark_of_mastery = mark_of_mastery;
+	}
+
+	public void setTankId(int tank_id) {
+		this.tank_id = tank_id;
+		
 	}
 	
 

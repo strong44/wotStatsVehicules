@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Map.Entry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +31,7 @@ import com.wot.shared.DataCommunityClanMembers;
 import com.wot.shared.DataCommunityMembers;
 import com.wot.shared.DataPlayerInfos;
 import com.wot.shared.DataPlayerTankRatings;
+import com.wot.shared.DataTankEncyclopedia;
 import com.wot.shared.DataWnEfficientyTank;
 import com.wot.shared.PlayerTankRatings;
 import com.wot.shared.PlayersInfos;
@@ -40,9 +43,10 @@ public class CronPersistPlayersStats extends HttpServlet {
 	
 	private static final Logger log = Logger.getLogger(WotServiceImpl.class.getName());
 	static List<String> listUsersPersisted = new ArrayList<String>();
-	static TankEncyclopedia tankEncyclopedia;
-	static WnEfficientyTank wnEfficientyTank ;
-	static HashMap<String, DataWnEfficientyTank> hMapWnEfficientyTankHashMap = new HashMap<String, DataWnEfficientyTank>();
+	
+	public static TankEncyclopedia tankEncyclopedia;
+	public static WnEfficientyTank wnEfficientyTank ;
+	public static HashMap<String, DataWnEfficientyTank> hMapWnEfficientyTankHashMap = new HashMap<String, DataWnEfficientyTank>();
 	
 	//static String lieu = "boulot"; //boulot ou maison si boulot -> pedro proxy 
 	
@@ -369,6 +373,157 @@ public class CronPersistPlayersStats extends HttpServlet {
 		return hMidUser;
 	}
 	
+//	public static void generateTankEncyclopedia() throws IOException {
+//		///Recuperation de l'encyclop�die des tanks ( n�cessaire pour connaitre le level de chaque char )  (pour calcul average level) 
+//		//=======================
+//		if (tankEncyclopedia == null) {
+//			//http://api.worldoftanks.eu/2.0/encyclopedia/tanks/?application_id=d0a293dc77667c9328783d489c8cef73
+//			String urlServer = urlServerEU +"/2.0/encyclopedia/tanks/?application_id=" + applicationIdEU ;
+//			URL url = null;
+//			
+//			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
+//				url = new URL(WotServiceImpl.proxy + urlServer );
+//			}
+//			else {
+//				url = new URL(urlServer );
+//			}
+//			
+//			
+//			HttpURLConnection conn2 = (HttpURLConnection)url.openConnection();
+//			conn2.setReadTimeout(20000);
+//			conn2.setConnectTimeout(20000);
+//			conn2.getInputStream();
+//			BufferedReader readerUser = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+//
+//			String lineUser = "";
+//			String AllLinesUser = "";
+//
+//			while ((lineUser = readerUser.readLine()) != null) {
+//				AllLinesUser = AllLinesUser + lineUser;
+//			}
+//			readerUser.close();
+//
+//			Gson gsonUser = new Gson();
+//			tankEncyclopedia = gsonUser.fromJson(AllLinesUser, TankEncyclopedia.class);
+//		}
+//		
+//		//contr�le --------
+//		if (tankEncyclopedia == null) {
+//			log.severe("tankEncyclopedia is null" );
+//			
+//		}
+//		else {
+//			log.warning("tankEncyclopedia is good" );
+//			if (tankEncyclopedia.getData() ==null ) {
+//				log.severe("tankEncyclopedia data is null" );
+//			}
+//			else {
+//				 Set<Entry<String, DataTankEncyclopedia>>  set = tankEncyclopedia.getData().entrySet();
+//				
+//				if (tankEncyclopedia.getData().get("6417") == null ){
+//					log.severe("tankEncyclopedia data get tank id 6417 is null" );
+//				}
+//			}
+//					
+//		}
+//		
+//	}
+	
+	public static void generateWnEfficientyTank() throws IOException {
+		if (wnEfficientyTank == null) {
+			URL urlWnEfficienty = null ;
+			// recup des membres du clan NVS
+			urlWnEfficienty = null ;
+			
+			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
+				urlWnEfficienty = new URL(WotServiceImpl.proxy + "http://www.wnefficiency.net/exp/expected_tank_values_latest.json");				
+			}
+			else {
+				//500006074
+				urlWnEfficienty = new URL("http://www.wnefficiency.net/exp/expected_tank_values_latest.json");
+			}
+			
+			HttpURLConnection connWN = (HttpURLConnection)urlWnEfficienty.openConnection();
+			connWN.setReadTimeout(60000);
+			connWN.setConnectTimeout(60000);
+			connWN.getInputStream();
+			BufferedReader reader = new BufferedReader(new InputStreamReader(connWN.getInputStream()));
+			
+			String line = "";
+			String AllLines = "";
+	
+			while ((line = reader.readLine()) != null) {
+				AllLines = AllLines + line;
+			}
+			reader.close();
+			Gson gson = new Gson();
+			wnEfficientyTank = gson.fromJson(AllLines, WnEfficientyTank.class);
+			System.out.println("wnEfficientyTank" + wnEfficientyTank);
+			
+			//transform list to hashMap for easy treatement
+			//HashMap<String, DataWnEfficientyTank> hMapWnEfficientyTankHashMap = new HashMap<String, DataWnEfficientyTank>();
+			for (DataWnEfficientyTank dataWnEfficientyTank : wnEfficientyTank.getData()) {
+				//dataWnEfficientyTank.
+				hMapWnEfficientyTankHashMap.put(dataWnEfficientyTank.getIDNum(), dataWnEfficientyTank);
+			}
+		}
+	}
+	
+	public static void generateTankEncyclopedia() throws IOException {
+		///Recuperation de l'encyclop�die des tanks ( n�cessaire pour connaitre le level de chaque char )  (pour calcul average level) 
+		//=======================
+		if (tankEncyclopedia == null) {
+			//http://api.worldoftanks.eu/2.0/encyclopedia/tanks/?application_id=d0a293dc77667c9328783d489c8cef73
+			String urlServer = urlServerEU +"/2.0/encyclopedia/tanks/?application_id=" + applicationIdEU ;
+			URL url = null;
+			
+			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
+				url = new URL(WotServiceImpl.proxy + urlServer );
+			}
+			else {
+				url = new URL(urlServer );
+			}
+			
+			
+			HttpURLConnection conn2 = (HttpURLConnection)url.openConnection();
+			conn2.setReadTimeout(20000);
+			conn2.setConnectTimeout(20000);
+			conn2.getInputStream();
+			BufferedReader readerUser = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+
+			String lineUser = "";
+			String AllLinesUser = "";
+
+			while ((lineUser = readerUser.readLine()) != null) {
+				AllLinesUser = AllLinesUser + lineUser;
+			}
+			readerUser.close();
+
+			Gson gsonUser = new Gson();
+			tankEncyclopedia = gsonUser.fromJson(AllLinesUser, TankEncyclopedia.class);
+		}
+		
+		//contr�le --------
+		if (tankEncyclopedia == null) {
+			log.severe("tankEncyclopedia is null" );
+			
+		}
+		else {
+			log.warning("tankEncyclopedia is good" );
+			if (tankEncyclopedia.getData() ==null ) {
+				log.severe("tankEncyclopedia data is null" );
+			}
+			else {
+				 Set<Entry<String, DataTankEncyclopedia>>  set = tankEncyclopedia.getData().entrySet();
+				
+				if (tankEncyclopedia.getData().get("6417") == null ){
+					log.severe("tankEncyclopedia data get tank id 6417 is null" );
+				}
+			}
+					
+		}
+		
+	}
 
 
 }

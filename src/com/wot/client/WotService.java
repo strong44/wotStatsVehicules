@@ -16,11 +16,9 @@ import com.wot.shared.CommunityClan;
 public interface WotService extends RemoteService {
 	List<String> persistStats(String clan, int indexBegin, int indexEnd, List<String> listIdUser) throws IllegalArgumentException;
 	Clan getClans(String clan, int offset) throws IllegalArgumentException;
-	AllCommunityAccount getAllMembersClanAndStats(List<String> listIdUser) throws IllegalArgumentException;
-	AllCommunityAccount getAllStatsFromDossierCache(String fileName) throws IllegalArgumentException;
-	
-	AllCommunityAccount getAllMembersClanAndStatsHistorised(String idClan, List<String> listIdUser) throws IllegalArgumentException;
+	//AllCommunityAccount getAllMembersClanAndStats(List<String> listIdUser) throws IllegalArgumentException;
 	CommunityClan getAllMembersClan(String idClan) throws IllegalArgumentException;
-	List<CommunityAccount> getHistorizedStats(String stat, List<String> listIdUser) throws Exception;
+
+
 	List<CommunityAccount> getHistorizedStatsTanks(List<String> listIdUser);
 }

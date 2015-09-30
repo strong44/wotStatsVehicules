@@ -39,6 +39,7 @@ import com.wot.shared.Clan;
 import com.wot.shared.CommunityAccount;
 import com.wot.shared.CommunityClan;
 import com.wot.shared.DataPlayerInfos;
+import com.wot.shared.DataWnEfficientyTank;
 import com.wot.shared.FieldVerifier;
 import com.wot.shared.ObjectFactory;
 import com.wot.shared.PlayersInfos;
@@ -60,7 +61,7 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 	private static String urlServer = "http://www.noobmeter.com/player/eu/ " ;
 
 
-	static public String lieu = "maison"; //boulot ou maison si boulot -> WotWeb
+	static public String lieu = "boulot"; //boulot ou maison si boulot -> WotWeb
 	boolean saveData = true;
 	private boolean saveDataPlayer = true;
 	XmlWiki wiki =  null;
@@ -82,7 +83,7 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 
 	private static final Logger log = Logger.getLogger(WotServiceImpl.class.getName());
 	
-	static TankEncyclopedia tankEncyclopedia;
+	//static TankEncyclopedia tankEncyclopedia;
 	
 	@Override
 	protected void checkPermutationStrongName() throws SecurityException {
@@ -524,11 +525,11 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 	
 	
 
-	@Override
-	public AllCommunityAccount getAllMembersClanAndStatsHistorised(String idClan, List<String> listIdUser) throws IllegalArgumentException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+//	@Override
+//	public AllCommunityAccount getAllMembersClanAndStatsHistorised(String idClan, List<String> listIdUser) throws IllegalArgumentException {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
 
 	/**
 	 * parse le HTML du wiki achieveemnt pour en extraire les noms de mï¿½dailles , les src d'icï¿½nes et les descriptions
@@ -648,29 +649,6 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 		
 	}
 
-	//xx
-	public HashMap<String, XmlListAchievement> BuidHashMapAchievement (XmlWiki xmlWiki) {
-		HashMap<String, XmlListAchievement> hashMapAchievement = new HashMap<String, XmlListAchievement>();
-		
-		
-		//parcours de toutes les catï¿½gories de mï¿½dailles
-		for(XmlListCategoryAchievement listCatAch	:	xmlWiki.getACHIEVEMENTS().getCATEGORYACHIEVEMENT() ) {
-			for (XmlListAchievement ach : listCatAch.getACHIEVEMENT()) {
-				for (XmlSrc src : ach.getSRCIMG().getSRC()) {
-					String srcValue = src.getVALUE();
-					int posLastSlash  = srcValue.lastIndexOf("/");
-					String nameFile = srcValue.substring(posLastSlash);
-					hashMapAchievement.put(nameFile, ach);
-				}
-				
-			}
-		}
-		
-		return hashMapAchievement;
-		
-	}
-
-
 	/**
 	 * get all historized stats of users with their id 
 	 * @param stat 
@@ -681,149 +659,149 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 	 * @return
 	 * @throws Exception 
 	 */
-	public List<CommunityAccount> getHistorizedStatsUsers(String stat, List<String> listIdUsers, int range ) throws Exception {
-		
+//	public List<CommunityAccount> getHistorizedStatsUsers(String stat, List<String> listIdUsers, int range ) throws Exception {
+//		
+////		for (String user :  listIdUsers ) {
+////			
+////			log.warning("getHistorizedStatsUsers for user : " + hMapIdUserName.get(user));
+////		}
+//		
+//		List<CommunityAccount> resultsFinal = new ArrayList<CommunityAccount>();
+//		
+//
+//		PersistenceManager pm =null;
+//		
+//		try {
+//			pm = PMF.get().getPersistenceManager();
+//	    	java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy hh:mm");
+//
+//				
+//	        
+//        	for (String user  : listIdUsers) {
+//        	/// query
+//				Query query = pm.newQuery(DaoCommunityAccount2.class);
+//			    query.setFilter("idUser == nameParam");
+//			    query.setOrdering("name desc");
+//			    query.setOrdering("dateCommunityAccount desc");
+//			    query.setRange(0, range); //only 6 results 
+//			    //query.setOrdering("hireDate desc");
+//			    query.declareParameters("String nameParam");
+//			    List<DaoCommunityAccount2> resultsTmp = (List<DaoCommunityAccount2>) query.execute(user);
+//			    
+//			    if(resultsTmp.size() != 0 )
+//			    {
+//				    DaoCommunityAccount2 daoComAcc = resultsTmp.get(0);
+//				    CommunityAccount comAcc=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(daoComAcc);
+//				    String previousDate = "";
+//				    for (DaoCommunityAccount2 myDaoCommunityAccount : resultsTmp ) {
+//				    	//si 2 dates identiques se suivent on ne prend la deuxiÃ¨me
+//				    	String dateCurrent = "";
+//				    	if (myDaoCommunityAccount.getDateCommunityAccount() != null) { 
+//					    	dateCurrent = sdf.format(myDaoCommunityAccount.getDateCommunityAccount());
+//					    	if (!dateCurrent.equalsIgnoreCase(previousDate)) {
+//					    		comAcc.listDates.add(dateCurrent);
+////					    		comAcc.listbattles.add(myDaoCommunityAccount.getData().getStats().getBattles());
+////					    		
+////					    		comAcc.listBattlesWins.add(myDaoCommunityAccount.getData().getStats().getBattle_wins());
+//					    		CommunityAccount comA=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(myDaoCommunityAccount);
+//					    		
+//					    		comAcc.listDataPlayerInfos.add(comA.getData());
+//					    	}
+//				    	}
+//				    	previousDate = dateCurrent;
+//				    }
+//				    resultsFinal.add(comAcc);
+//			    }
+//			    query.closeAll();
+//		    
+//        	}
+//		} catch (Exception e) {
+//			
+//			log.severe(e.getLocalizedMessage());
+//			log.log(Level.SEVERE, "exception :" , e);
+//			throw e;
+//		} 
+//		finally {
+//			if(pm != null)
+//				pm.close();
+//		}
+//	
+//		return resultsFinal;
+//	
+//	}
+
+//	public Map<String, CommunityAccount> getMapHistorizedStatsUsers(List<String> listIdUsers, int range ) {
+//		
 //		for (String user :  listIdUsers ) {
 //			
 //			log.warning("getHistorizedStatsUsers for user : " + hMapIdUserName.get(user));
 //		}
-		
-		List<CommunityAccount> resultsFinal = new ArrayList<CommunityAccount>();
-		
-
-		PersistenceManager pm =null;
-		
-		try {
-			pm = PMF.get().getPersistenceManager();
-	    	java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy hh:mm");
-
-				
-	        
-        	for (String user  : listIdUsers) {
-        	/// query
-				Query query = pm.newQuery(DaoCommunityAccount2.class);
-			    query.setFilter("idUser == nameParam");
-			    query.setOrdering("name desc");
-			    query.setOrdering("dateCommunityAccount desc");
-			    query.setRange(0, range); //only 6 results 
-			    //query.setOrdering("hireDate desc");
-			    query.declareParameters("String nameParam");
-			    List<DaoCommunityAccount2> resultsTmp = (List<DaoCommunityAccount2>) query.execute(user);
-			    
-			    if(resultsTmp.size() != 0 )
-			    {
-				    DaoCommunityAccount2 daoComAcc = resultsTmp.get(0);
-				    CommunityAccount comAcc=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(daoComAcc);
-				    String previousDate = "";
-				    for (DaoCommunityAccount2 myDaoCommunityAccount : resultsTmp ) {
-				    	//si 2 dates identiques se suivent on ne prend la deuxiÃ¨me
-				    	String dateCurrent = "";
-				    	if (myDaoCommunityAccount.getDateCommunityAccount() != null) { 
-					    	dateCurrent = sdf.format(myDaoCommunityAccount.getDateCommunityAccount());
-					    	if (!dateCurrent.equalsIgnoreCase(previousDate)) {
-					    		comAcc.listDates.add(dateCurrent);
-//					    		comAcc.listbattles.add(myDaoCommunityAccount.getData().getStats().getBattles());
-//					    		
-//					    		comAcc.listBattlesWins.add(myDaoCommunityAccount.getData().getStats().getBattle_wins());
-					    		CommunityAccount comA=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(myDaoCommunityAccount);
-					    		
-					    		comAcc.listDataPlayerInfos.add(comA.getData());
-					    	}
-				    	}
-				    	previousDate = dateCurrent;
-				    }
-				    resultsFinal.add(comAcc);
-			    }
-			    query.closeAll();
-		    
-        	}
-		} catch (Exception e) {
-			
-			log.severe(e.getLocalizedMessage());
-			log.log(Level.SEVERE, "exception :" , e);
-			throw e;
-		} 
-		finally {
-			if(pm != null)
-				pm.close();
-		}
-	
-		return resultsFinal;
-	
-	}
-
-	public Map<String, CommunityAccount> getMapHistorizedStatsUsers(List<String> listIdUsers, int range ) {
-		
-		for (String user :  listIdUsers ) {
-			
-			log.warning("getHistorizedStatsUsers for user : " + hMapIdUserName.get(user));
-		}
-		
-		Map<String, CommunityAccount> resultsFinal = new HashMap<String, CommunityAccount>();
-		
-
-		PersistenceManager pm =null;
-		
-		try {
-			pm = PMF.get().getPersistenceManager();
-	    	java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd hh:mm");
-
-				
-	        try {
-	        	for (String user  : listIdUsers) {
-	        	/// query
-					Query query = pm.newQuery(DaoCommunityAccount2.class);
-				    query.setFilter("idUser == nameParam");
-				    query.setOrdering("name desc");
-				    query.setOrdering("dateCommunityAccount desc");
-				    query.setRange(0, range); //only 6 results 
-				    //query.setOrdering("hireDate desc");
-				    query.declareParameters("String nameParam");
-				    List<DaoCommunityAccount2> resultsTmp = (List<DaoCommunityAccount2>) query.execute(user);
-				    
-				    if(resultsTmp.size() != 0 )
-				    {
-					    DaoCommunityAccount2 daoComAcc = resultsTmp.get(0);
-					    CommunityAccount comAcc=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(daoComAcc);
-					    String previousDate = "";
-					    for (DaoCommunityAccount2 myDaoCommunityAccount : resultsTmp ) {
-					    	//si 2 dates identiques se suivent on ne prend la deuxiÃ¨me
-					    	String dateCurrent = "";
-					    	if (myDaoCommunityAccount.getDateCommunityAccount() != null) { 
-						    	dateCurrent = sdf.format(myDaoCommunityAccount.getDateCommunityAccount());
-						    	if (!dateCurrent.equalsIgnoreCase(previousDate)) {
-						    		comAcc.listDates.add(dateCurrent);
-//						    		comAcc.listbattles.add(myDaoCommunityAccount.getData().getStats().getBattles());
-//						    		
-//						    		comAcc.listBattlesWins.add(myDaoCommunityAccount.getData().getStats().getBattle_wins());
-						    	}
-					    	}
-					    	previousDate = dateCurrent;
-					    }
-					    resultsFinal.put(user, comAcc);
-				    }
-				    query.closeAll();
-			    
-	        	}
-			    
-			    
-	        }
-		    catch(Exception e){
-		    	log.severe(e.getLocalizedMessage());
-	        	//pm.currentTransaction().rollback();
-	        }
-		} catch (Exception e) {
-			e.printStackTrace();
-			log.severe(e.getLocalizedMessage());
-		} 
-		finally {
-			if(pm != null)
-				pm.close();
-		}
-	
-		return resultsFinal;
-	
-	}
+//		
+//		Map<String, CommunityAccount> resultsFinal = new HashMap<String, CommunityAccount>();
+//		
+//
+//		PersistenceManager pm =null;
+//		
+//		try {
+//			pm = PMF.get().getPersistenceManager();
+//	    	java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyyMMdd hh:mm");
+//
+//				
+//	        try {
+//	        	for (String user  : listIdUsers) {
+//	        	/// query
+//					Query query = pm.newQuery(DaoCommunityAccount2.class);
+//				    query.setFilter("idUser == nameParam");
+//				    query.setOrdering("name desc");
+//				    query.setOrdering("dateCommunityAccount desc");
+//				    query.setRange(0, range); //only 6 results 
+//				    //query.setOrdering("hireDate desc");
+//				    query.declareParameters("String nameParam");
+//				    List<DaoCommunityAccount2> resultsTmp = (List<DaoCommunityAccount2>) query.execute(user);
+//				    
+//				    if(resultsTmp.size() != 0 )
+//				    {
+//					    DaoCommunityAccount2 daoComAcc = resultsTmp.get(0);
+//					    CommunityAccount comAcc=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(daoComAcc);
+//					    String previousDate = "";
+//					    for (DaoCommunityAccount2 myDaoCommunityAccount : resultsTmp ) {
+//					    	//si 2 dates identiques se suivent on ne prend la deuxiÃ¨me
+//					    	String dateCurrent = "";
+//					    	if (myDaoCommunityAccount.getDateCommunityAccount() != null) { 
+//						    	dateCurrent = sdf.format(myDaoCommunityAccount.getDateCommunityAccount());
+//						    	if (!dateCurrent.equalsIgnoreCase(previousDate)) {
+//						    		comAcc.listDates.add(dateCurrent);
+////						    		comAcc.listbattles.add(myDaoCommunityAccount.getData().getStats().getBattles());
+////						    		
+////						    		comAcc.listBattlesWins.add(myDaoCommunityAccount.getData().getStats().getBattle_wins());
+//						    	}
+//					    	}
+//					    	previousDate = dateCurrent;
+//					    }
+//					    resultsFinal.put(user, comAcc);
+//				    }
+//				    query.closeAll();
+//			    
+//	        	}
+//			    
+//			    
+//	        }
+//		    catch(Exception e){
+//		    	log.severe(e.getLocalizedMessage());
+//	        	//pm.currentTransaction().rollback();
+//	        }
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			log.severe(e.getLocalizedMessage());
+//		} 
+//		finally {
+//			if(pm != null)
+//				pm.close();
+//		}
+//	
+//		return resultsFinal;
+//	
+//	}
 
 	/**
 	 * get all historized stats tanks of users with their id 
@@ -838,6 +816,16 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 		List<CommunityAccount> resultsFinal = new ArrayList<CommunityAccount>();
 		
 
+		try {
+			//pour recupérer le nom de chars avec leur ID
+			CronPersistPlayersStats.generateTankEncyclopedia();
+			
+		} catch (IOException e1) {
+			e1.printStackTrace();
+			log.severe(e1.getLocalizedMessage());
+			return null;
+		}
+		
 		PersistenceManager pm =null;
 		
 		try {
@@ -859,25 +847,15 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 				    
 				    if(resultsTmp.size() != 0 )
 				    {
-					    DaoCommunityAccount2 daoComAcc = resultsTmp.get(0);
-					    CommunityAccount comAcc=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(daoComAcc);
-					    String previousDate = "";
 					    for (DaoCommunityAccount2 myDaoCommunityAccount : resultsTmp ) {
-					    	//si 2 dates identiques se suivent on ne prend la deuxiÃ¨me
-					    	String dateCurrent = "";
-					    	if (myDaoCommunityAccount.getDateCommunityAccount() != null) { 
-						    	dateCurrent = sdf.format(myDaoCommunityAccount.getDateCommunityAccount());
-						    	if (!dateCurrent.equalsIgnoreCase(previousDate)) {
-						    		CommunityAccount comAccForList=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(myDaoCommunityAccount);
-						    		comAcc.listDates.add(dateCurrent);
-						    		//comAcc.listBattlesTanks.add(comAccForList.g);  //bug now !!!!
-						    		
-						    		//comAcc.listBattlesTanksWins.add(myDaoCommunityAccount.getData().getStatsVehicules().getBattle_wins());
-						    	}
+					    	if (myDaoCommunityAccount.getDateCommunityAccount() != null ) { 
+						    	CommunityAccount comAccForList=  TransformDtoObject.TransformDaoCommunityAccountToCommunityAccount(myDaoCommunityAccount);
+						    	//last transformation tank name
+						    	
+						    	resultsFinal.add(comAccForList);
 					    	}
-					    	previousDate = dateCurrent;
+					    	 
 					    }
-					    resultsFinal.add(comAcc);
 				    }
 				    query.closeAll();
 			    
@@ -910,16 +888,7 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 		
 		}
 	
-	@Override
-		public List<CommunityAccount> getHistorizedStats(  String stat, List<String> listIdUser) throws Exception {
-		
-			return getHistorizedStatsUsers(stat , listIdUser, 30);
-		
-		}
 
-
-
-	
 
 	/**
 			 * persist wot server's datas  in datastore appengine
@@ -935,296 +904,216 @@ public class WotServiceImpl extends RemoteServiceServlet implements WotService {
 	}
 
 
-	@Override
-	public AllCommunityAccount getAllMembersClanAndStats( List<String> listIdUser) {
-	
-		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
-	
-		// Escape data from the client to avoid cross-site script vulnerabilities.
-		userAgent = escapeHtml(userAgent);
-		
-		List<CommunityAccount> listCommunityAccount = new ArrayList<CommunityAccount>();
-		AllCommunityAccount myAllCommunityAccount = new AllCommunityAccount ();
-		myAllCommunityAccount.setListCommunityAccount(listCommunityAccount);
-		PersistenceManager pm =null;
-		
-		try {
-			pm = PMF.get().getPersistenceManager();
-			
-			String AllIdUser ="";
-			
-			for(String idUser :listIdUser) {
-				
-				//log.warning("Request stat for user : " + hMapIdUserName.get(idUser));
-				
-				if("".equalsIgnoreCase(AllIdUser))
-					AllIdUser =  idUser;
-				else
-					AllIdUser = AllIdUser + "," + idUser;
-			}
-			
-	
-						
-			URL url = null ;
-
-			//http://api.worldoftanks.eu/wot/account/info/?application_id=d0a293dc77667c9328783d489c8cef73&account_id=506486576
-			String urlServer = urlServerEU +"/wot/account/info/?application_id=" + applicationIdEU + "&account_id=";
-			
-			if(lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
-				url = new URL(proxy + urlServer + AllIdUser);
-			}
-			else {
-				url = new URL(urlServer + AllIdUser);
-			}
-		
-			HttpURLConnection conn2 = (HttpURLConnection)url.openConnection();
-			conn2.setReadTimeout(20000);
-			conn2.setConnectTimeout(20000);
-			conn2.getInputStream();
-			BufferedReader readerUser = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
-
-			//BufferedReader readerUser = new BufferedReader(new InputStreamReader(url.openStream()));
-			String lineUser = "";
-			;
-			String AllLinesUser = "";
-
-			while ((lineUser = readerUser.readLine()) != null) {
-				AllLinesUser = AllLinesUser + lineUser;
-			}
-			readerUser.close();
-
-			Gson gsonUser = new Gson();
-			PlayersInfos playersInfos = gsonUser.fromJson(AllLinesUser, PlayersInfos.class);
-			
-			//Transform playerRatings en communityAccount (pour utiliser des types compatibles avec la sÃ©rialisation (pas de MAP !!))
-			List<CommunityAccount> listCommunityAccount1 =  TransformDtoObject.TransformPlayersInfosToListCommunityAccount(playersInfos);
-			
-			//////////////////////////////////
-			// ==API encyclopÃ©die des tanks - Pour obtenir le level des char (on doit calculier le tier moyen jouÃ©)
-			// Dans les stats des joueurs nous avons le tank-id mais pas son level
-			
-			//on requete notre base les averageLevel y ont été stockés par le cron dans la table community Account
-			Map <String, CommunityAccount> mapHistStatsUsers = getMapHistorizedStatsUsers(listIdUser, 6);
-			
-			
-			//make some calculation of stats 
-			for(CommunityAccount communityAccount : listCommunityAccount1) {
-				String user_id = communityAccount.getIdUser();
-			
-				//setData.
-				CommunityAccount  histStatUser= mapHistStatsUsers.get(user_id);
-				
-				//calcul du tier moyen
-				//Double nbBattles = 0.0;
-				//Double levelByBattles = 0.0 ; 
-				//log.warning("histStatUser " + histStatUser);
-				//log.warning("histStatUser.getData() " + histStatUser.getData());
-				///log.warning("commAcc.getData().getAverageLevel " + commAcc.getData().getAverageLevel);
-				
-				DataPlayerInfos myDataCommunityAccountRatings = communityAccount.getData();
-				if(histStatUser != null && histStatUser.getData() != null ) {
-					Double averageLevelTank =histStatUser.getData().getStatistics().getAllStatistics().getAverageLevelTankCalc(); 
-					Double wn8 =histStatUser.getData().getStatistics().getAllStatistics().getWn8();
-					
-					//average level tank
-					myDataCommunityAccountRatings.getStatistics().getAllStatistics().setAverageLevelTankCalc(averageLevelTank);
-					//wn8
-					myDataCommunityAccountRatings.getStatistics().getAllStatistics().setWn8(wn8);
-				}else {
-					//WN8 : recup de noobmeter
-					ArrayList<String> param = new ArrayList<String>();
-					param.add("WN8");
-					String statsWN8 = getStatsWithoutFormat(communityAccount.getData().getNickname(), param).get("WN8");
-					
-					try {
-						Double wn8 = Double.valueOf(statsWN8);
-						//wn8
-						myDataCommunityAccountRatings.getStatistics().getAllStatistics().setWn8(wn8);
-					} catch (NumberFormatException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-				}
-				
-				
-				
-				
-				
-				//== WR calculated
-				int battles = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getBattles();
-				int battlesWin = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getWins();
-				Double wrCal = (double) ((double)battlesWin/(double)battles);
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				wrCal = wrCal * 100; //ex : 51,844444
-				int intWrCal = (int) (wrCal * 100); //ex : 5184
-				
-				wrCal = (double)intWrCal / 100 ; //ex : 51,84
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setBattle_avg_performanceCalc(wrCal);
-				
-				//== Ratio capture points calculated
-				int ctfPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getCapture_points();
-				Double ctfPointsCal = (double) ((double)ctfPoints/(double)battles);// 1,28 :1 = 1.28 
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
-				int intCtfPointsCal = (int) (ctfPointsCal * 100); //ex intCtfPointsCal : 128,27 ctfPointsCal = 1.28
-				
-				ctfPointsCal = (double)intCtfPointsCal / 100 ; //ex ctfPointsCal : 1,28 intCtfPointsCal = 128
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioCtfPoints(ctfPointsCal);
-				
-				//==Damage Ration calculated
-				int damagePoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getDamage_dealt();
-				Double ratioDamagePoints = (double) ((double)damagePoints/(double)battles);
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
-				int intRatioDamagePoints = (int) (ratioDamagePoints * 100); //ex : 128,27
-				
-				ratioDamagePoints = (double)intRatioDamagePoints / 100 ; //ex : 1,28
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDamagePoints(ratioDamagePoints);
-				
-				
-				//==Ratio Defense calculated
-				int droppedCtfPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getDropped_capture_points();
-				Double ratioDroppedCtfPoints = (double) ((double)droppedCtfPoints/(double)battles);
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
-				int intRatioDroppedCtfPoints = (int) (ratioDroppedCtfPoints * 100); //ex : 128,27
-				
-				ratioDroppedCtfPoints = (double)intRatioDroppedCtfPoints / 100 ; //ex : 1,28
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDroppedCtfPoints(ratioDroppedCtfPoints);
-				
-				
-				//==Ratio Destroyed calculated
-				int destroyedPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getFrags();
-				Double ratiodestroyedPoints = (double) ((double)destroyedPoints/(double)battles);
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
-				int intRatiodestroyedPoints = (int) (ratiodestroyedPoints * 100); //ex : 128,27
-				
-				ratiodestroyedPoints = (double)intRatiodestroyedPoints / 100 ; //ex : 1,28
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDestroyedPoints(ratiodestroyedPoints);
-				
-				//==Ratio Detected calculated
-				int detectedPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getSpotted();
-				Double ratioDetectedPoints = (double) ((double)detectedPoints/(double)battles);
-				
-				//on ne conserve que 2 digits aprÃ¨s la virgule 
-				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
-				int intRatioDetectedPoints = (int) (ratioDetectedPoints * 100); //ex : 128,27
-				
-				ratioDetectedPoints = (double)intRatioDetectedPoints / 100 ; //ex : 1,28
-				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDetectedPoints(ratioDetectedPoints);
-			
-			}
-			//add account
-			listCommunityAccount.addAll(listCommunityAccount1);
-
-
-		} catch (MalformedURLException e) {
-			// ...
-			e.printStackTrace();
-		} catch (IOException e) {
-			// ...
-			e.printStackTrace();
-		}
-		finally {
-			pm.close();
-		}
-	
-		return myAllCommunityAccount;
-	
-	}
+//	@Override
+//	public AllCommunityAccount getAllMembersClanAndStats( List<String> listIdUser) {
+//	
+//		String userAgent = getThreadLocalRequest().getHeader("User-Agent");
+//	
+//		// Escape data from the client to avoid cross-site script vulnerabilities.
+//		userAgent = escapeHtml(userAgent);
+//		
+//		List<CommunityAccount> listCommunityAccount = new ArrayList<CommunityAccount>();
+//		AllCommunityAccount myAllCommunityAccount = new AllCommunityAccount ();
+//		myAllCommunityAccount.setListCommunityAccount(listCommunityAccount);
+//		PersistenceManager pm =null;
+//		
+//		try {
+//			pm = PMF.get().getPersistenceManager();
+//			
+//			String AllIdUser ="";
+//			
+//			for(String idUser :listIdUser) {
+//				
+//				//log.warning("Request stat for user : " + hMapIdUserName.get(idUser));
+//				
+//				if("".equalsIgnoreCase(AllIdUser))
+//					AllIdUser =  idUser;
+//				else
+//					AllIdUser = AllIdUser + "," + idUser;
+//			}
+//			
+//	
+//						
+//			URL url = null ;
+//
+//			//http://api.worldoftanks.eu/wot/account/info/?application_id=d0a293dc77667c9328783d489c8cef73&account_id=506486576
+//			String urlServer = urlServerEU +"/wot/account/info/?application_id=" + applicationIdEU + "&account_id=";
+//			
+//			if(lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
+//				url = new URL(proxy + urlServer + AllIdUser);
+//			}
+//			else {
+//				url = new URL(urlServer + AllIdUser);
+//			}
+//		
+//			HttpURLConnection conn2 = (HttpURLConnection)url.openConnection();
+//			conn2.setReadTimeout(20000);
+//			conn2.setConnectTimeout(20000);
+//			conn2.getInputStream();
+//			BufferedReader readerUser = new BufferedReader(new InputStreamReader(conn2.getInputStream()));
+//
+//			//BufferedReader readerUser = new BufferedReader(new InputStreamReader(url.openStream()));
+//			String lineUser = "";
+//			;
+//			String AllLinesUser = "";
+//
+//			while ((lineUser = readerUser.readLine()) != null) {
+//				AllLinesUser = AllLinesUser + lineUser;
+//			}
+//			readerUser.close();
+//
+//			Gson gsonUser = new Gson();
+//			PlayersInfos playersInfos = gsonUser.fromJson(AllLinesUser, PlayersInfos.class);
+//			
+//			//Transform playerRatings en communityAccount (pour utiliser des types compatibles avec la sÃ©rialisation (pas de MAP !!))
+//			List<CommunityAccount> listCommunityAccount1 =  TransformDtoObject.TransformPlayersInfosToListCommunityAccount(playersInfos);
+//			
+//			//////////////////////////////////
+//			// ==API encyclopÃ©die des tanks - Pour obtenir le level des char (on doit calculier le tier moyen jouÃ©)
+//			// Dans les stats des joueurs nous avons le tank-id mais pas son level
+//			
+//			//on requete notre base les averageLevel y ont été stockés par le cron dans la table community Account
+//			Map <String, CommunityAccount> mapHistStatsUsers = getMapHistorizedStatsUsers(listIdUser, 6);
+//			
+//			
+//			//make some calculation of stats 
+//			for(CommunityAccount communityAccount : listCommunityAccount1) {
+//				String user_id = communityAccount.getIdUser();
+//			
+//				//setData.
+//				CommunityAccount  histStatUser= mapHistStatsUsers.get(user_id);
+//				
+//				//calcul du tier moyen
+//				//Double nbBattles = 0.0;
+//				//Double levelByBattles = 0.0 ; 
+//				//log.warning("histStatUser " + histStatUser);
+//				//log.warning("histStatUser.getData() " + histStatUser.getData());
+//				///log.warning("commAcc.getData().getAverageLevel " + commAcc.getData().getAverageLevel);
+//				
+//				DataPlayerInfos myDataCommunityAccountRatings = communityAccount.getData();
+//				if(histStatUser != null && histStatUser.getData() != null ) {
+//					Double averageLevelTank =histStatUser.getData().getStatistics().getAllStatistics().getAverageLevelTankCalc(); 
+//					Double wn8 =histStatUser.getData().getStatistics().getAllStatistics().getWn8();
+//					
+//					//average level tank
+//					myDataCommunityAccountRatings.getStatistics().getAllStatistics().setAverageLevelTankCalc(averageLevelTank);
+//					//wn8
+//					myDataCommunityAccountRatings.getStatistics().getAllStatistics().setWn8(wn8);
+//				}else {
+//					//WN8 : recup de noobmeter
+//					ArrayList<String> param = new ArrayList<String>();
+//					param.add("WN8");
+//					String statsWN8 = getStatsWithoutFormat(communityAccount.getData().getNickname(), param).get("WN8");
+//					
+//					try {
+//						Double wn8 = Double.valueOf(statsWN8);
+//						//wn8
+//						myDataCommunityAccountRatings.getStatistics().getAllStatistics().setWn8(wn8);
+//					} catch (NumberFormatException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					
+//				}
+//				
+//				
+//				
+//				
+//				
+//				//== WR calculated
+//				int battles = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getBattles();
+//				int battlesWin = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getWins();
+//				Double wrCal = (double) ((double)battlesWin/(double)battles);
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				wrCal = wrCal * 100; //ex : 51,844444
+//				int intWrCal = (int) (wrCal * 100); //ex : 5184
+//				
+//				wrCal = (double)intWrCal / 100 ; //ex : 51,84
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setBattle_avg_performanceCalc(wrCal);
+//				
+//				//== Ratio capture points calculated
+//				int ctfPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getCapture_points();
+//				Double ctfPointsCal = (double) ((double)ctfPoints/(double)battles);// 1,28 :1 = 1.28 
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
+//				int intCtfPointsCal = (int) (ctfPointsCal * 100); //ex intCtfPointsCal : 128,27 ctfPointsCal = 1.28
+//				
+//				ctfPointsCal = (double)intCtfPointsCal / 100 ; //ex ctfPointsCal : 1,28 intCtfPointsCal = 128
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioCtfPoints(ctfPointsCal);
+//				
+//				//==Damage Ration calculated
+//				int damagePoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getDamage_dealt();
+//				Double ratioDamagePoints = (double) ((double)damagePoints/(double)battles);
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
+//				int intRatioDamagePoints = (int) (ratioDamagePoints * 100); //ex : 128,27
+//				
+//				ratioDamagePoints = (double)intRatioDamagePoints / 100 ; //ex : 1,28
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDamagePoints(ratioDamagePoints);
+//				
+//				
+//				//==Ratio Defense calculated
+//				int droppedCtfPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getDropped_capture_points();
+//				Double ratioDroppedCtfPoints = (double) ((double)droppedCtfPoints/(double)battles);
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
+//				int intRatioDroppedCtfPoints = (int) (ratioDroppedCtfPoints * 100); //ex : 128,27
+//				
+//				ratioDroppedCtfPoints = (double)intRatioDroppedCtfPoints / 100 ; //ex : 1,28
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDroppedCtfPoints(ratioDroppedCtfPoints);
+//				
+//				
+//				//==Ratio Destroyed calculated
+//				int destroyedPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getFrags();
+//				Double ratiodestroyedPoints = (double) ((double)destroyedPoints/(double)battles);
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
+//				int intRatiodestroyedPoints = (int) (ratiodestroyedPoints * 100); //ex : 128,27
+//				
+//				ratiodestroyedPoints = (double)intRatiodestroyedPoints / 100 ; //ex : 1,28
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDestroyedPoints(ratiodestroyedPoints);
+//				
+//				//==Ratio Detected calculated
+//				int detectedPoints = myDataCommunityAccountRatings.getStatistics().getAllStatistics().getSpotted();
+//				Double ratioDetectedPoints = (double) ((double)detectedPoints/(double)battles);
+//				
+//				//on ne conserve que 2 digits aprÃ¨s la virgule 
+//				//ctfPointsCal = ctfPointsCal * 100; //ex : 1,2827
+//				int intRatioDetectedPoints = (int) (ratioDetectedPoints * 100); //ex : 128,27
+//				
+//				ratioDetectedPoints = (double)intRatioDetectedPoints / 100 ; //ex : 1,28
+//				myDataCommunityAccountRatings.getStatistics().getAllStatistics().setRatioDetectedPoints(ratioDetectedPoints);
+//			
+//			}
+//			//add account
+//			listCommunityAccount.addAll(listCommunityAccount1);
+//
+//
+//		} catch (MalformedURLException e) {
+//			// ...
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// ...
+//			e.printStackTrace();
+//		}
+//		finally {
+//			pm.close();
+//		}
+//	
+//		return myAllCommunityAccount;
+//	
+//	}
 
 	static void main (String arg[]) {
 		WotServiceImpl wot  = new WotServiceImpl();
 		 wot.getClans("NOVA_SNAIL", 0);
 		 System.exit(0);
 		
-	}
-
-	@Override
-	public AllCommunityAccount getAllStatsFromDossierCache(String fileName)
-			throws IllegalArgumentException {
-		
-		URL url = null ;
-		//to avoid SSL Protcole erreur ?
-		System.setProperty("jsse.enableSNIExtension", "false");
-		try {
-			//posting a folder to wot-dossier
-			//http://wot-dossier.appspot.com/service/dossier-to-json 
-			if(WotServiceImpl.lieu.equalsIgnoreCase("boulot")){ //on passe par 1 proxy
-				 //5726971199750144
-				url = new URL(WotServiceImpl.proxy + "http://wot-dossier.appspot.com/service/dossier-to-json");					
-			}
-			else {
-				url = new URL("http://wot-dossier.appspot.com/service/dossier-to-json" );		
-			}
-			
-			File fileToUpload = new File("D:\\PrivÃ©\\tle-conniat\\wot\\Wargaming.net\\WorldOfTanks\\dossier_cache\\NRXWO2LOFVRXILLQGEXHO33SNRSG6ZTUMFXGW4ZONZSXIORSGAYDCNJ3ON2HE33OM42DIX2FKU======.dat");
-
-			HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-			conn.setReadTimeout(60000);
-			conn.setConnectTimeout(60000);
-			
-			conn.setDoOutput(true); // This sets request method to POST.
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/binary");
-			conn.setRequestProperty("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8");
-			conn.setRequestProperty("Accept-Language", "en,fr;q=0.8,fr-fr;q=0.5,en-us;q=0.3");
-			conn.setRequestProperty("Accept-Encoding", "gzip, deflate");
-			conn.setRequestProperty("Accept-Charset", "ISO-8859-1,utf-8;q=0.7,*;q=0.7");
-			conn.setRequestProperty("Transfer-Encoding", "base64");
-			
-			conn.setRequestProperty("Pragma", "no-cache");
-			conn.setRequestProperty("Cache-Control", "no-cache");
-			
-			PrintWriter writer = null;
-			FileInputStream inputStream  = null;
-			
-			try {
-			    BufferedReader reader = null;
-			    //StringBuffer rec = new StringBuffer("");  
-			    InputStreamReader is = null;
-			    BufferedInputStream in = null;
-			        
-			        inputStream = new FileInputStream(fileToUpload);
-			        byte[] buffer = new byte[4096];
-			        int bytesRead = -1;
-			        while ((bytesRead = inputStream.read(buffer)) != -1) {
-			        	conn.getOutputStream().write(buffer, 0, bytesRead);
-			        }
-			        conn.getOutputStream().flush();
-			        
-					int responseCode = ((HttpURLConnection) conn).getResponseCode();
-					System.out.println(responseCode); // Should be 200
-					reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8"));
-
-					//printing response
-					String line = "";
-					String AllLines = "";
-					while ((line = reader.readLine()) != null) {
-						AllLines = AllLines + line;
-					}
-					System.out.println(AllLines);
-			        
-			} finally {
-		        if (inputStream != null )
-						inputStream.close();
-					
-			}
-			
-		} catch (Exception e)  {
-	       
-			e.printStackTrace();
-		}
-		
-		
-		return null;
 	}
 
 	/**
