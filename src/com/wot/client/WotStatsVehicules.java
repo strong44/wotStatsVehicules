@@ -54,6 +54,7 @@ import com.wot.shared.DataCommunityAccount;
 import com.wot.shared.DataCommunityAccountVehicules;
 import com.wot.shared.DataCommunityClanMembers;
 import com.wot.shared.DataCommunityMembers;
+import com.wot.shared.DataPlayerTankRatingsStatistics;
 import com.wot.shared.FieldVerifier;
 import com.wot.shared.ItemsDataClan;
 import com.wot.shared.XmlListAchievement;
@@ -1314,17 +1315,13 @@ public class WotStatsVehicules implements EntryPoint {
 		    
 		    //
 		    int sizeDate = 0;
-		    final List<String> listDates = new ArrayList<String>(); 
+		    final List<Date> listDates = new ArrayList<Date>(); 
 		    for (CommunityAccount commAcc :  listCommAcc) {
-		    	int size = commAcc.listDates.size();
-		    	if (size > sizeDate) { 
-		    		sizeDate = size ;
-		    		for(String date : commAcc.listDates) {
-		    			listDates.add(date);
-		    		}
-		    	}
+		    	listDates.add(commAcc.getDateCommunityAccount());
 		    }
-		    // Add a text column to show the name.
+		    sizeDate = listDates.size();
+		    
+		    // Add a text column to show the name of the player.
 		    TextColumn<CommunityAccount> nameColumn = new TextColumn<CommunityAccount>() {
 		      @Override
 		      public String getValue(CommunityAccount object) {
@@ -1356,28 +1353,34 @@ public class WotStatsVehicules implements EntryPoint {
 
 	    	///
 		    // TANK 1 JOUR 1  ///////////////////////
-		    TextColumn<CommunityAccount> jour1Tank1 = new TextColumn<CommunityAccount>() {
+		    TextColumn<List<CommunityAccount>> jour1Tank1 = new TextColumn<List<CommunityAccount>>() {
 		      @Override
-		      public String getValue(CommunityAccount object) {
-		    	  if (object.listBattlesTanks.size() >= 2  ) {
-		    		  List<DataCommunityAccountVehicules> listVehPlayed = new ArrayList<DataCommunityAccountVehicules>();
+		      public String getValue(List<CommunityAccount> object ) {
+		    	  if (object.size() >= 2  ) {
+		    		  List<DataPlayerTankRatingsStatistics> listTankPlayedFromLastDay = new ArrayList<DataPlayerTankRatingsStatistics>();
 		    		  
-		    		  DataCommunityAccount dataCommAccOfDay0 = object.listBattlesTanks.get(0);
-		    		  DataCommunityAccount dataCommAccOfDay1 = object.listBattlesTanks.get(1);
+		    		  //liste des stats des tanks au jour J 
+		    		  List<DataPlayerTankRatingsStatistics> listTankDay0 = object.get(0).getListTankStatistics();
+		    		  
+		    		  //liste des stats des tanks au jour J + 1 
+		    		  List<DataPlayerTankRatingsStatistics> listTankDay1 = object.get(1).getListTankStatistics();
+		    		  
+		    		  
 		    		  //bcl sur les stats vehicules du joueur pour le jour en question (1) 
-		    		  for (DataCommunityAccountVehicules dataCommAccVeh0 : dataCommAccOfDay0.getVehicles()) {
-		    			  //pour chaque vehicule du jour 0, il faut trouver le véhicule correspondant dans  ceux du jour 1 pour éventuellement détecté qu'il a été joué ( + battle)
+		    		  for (DataPlayerTankRatingsStatistics dataCommAccVeh0 : listTankDay0) {
+		    			  //pour chaque vehicule du jour 0, il faut trouver le véhicule correspondant dans  ceux du jour 1 pour éventuellement détecté 
+		    			  //qu'il a été joué ( + battle)
 		    			  //et le mémoriser dans une liste de tanks joués
 		    			  //A la fin on ne prendra que ceux qui ont été le + joués) 
 		    			  //
-		    			  for (DataCommunityAccountVehicules dataCommAccVeh1 : dataCommAccOfDay1.getVehicles()) {
+		    			  for (DataPlayerTankRatingsStatistics dataCommAccVeh1 : listTankDay1) {
 			    			  //char trouvé dans liste
-			    			  if(dataCommAccVeh0.getName().equalsIgnoreCase(dataCommAccVeh1.getName())) {
-			    				  if (dataCommAccVeh0.getBattle_count() >  dataCommAccVeh1.getBattle_count()) {
+			    			  if(dataCommAccVeh0.getTank_id() == dataCommAccVeh1.getTank_id() ) {
+			    				  if (dataCommAccVeh0.getBattles() >  dataCommAccVeh1.getBattles()) {
 			    					  //le char a été joué il faut l'ajouter  à la liste
-			    					  dataCommAccVeh0.setCountBattleSincePreviousDay(dataCommAccVeh0.getBattle_count() - dataCommAccVeh1.getBattle_count());
-			    					  dataCommAccVeh0.setWinCountBattleSincePreviousDay(dataCommAccVeh0.getWin_count() - dataCommAccVeh1.getWin_count());
-			    					  listVehPlayed.add(dataCommAccVeh0);
+			    					  dataCommAccVeh0.setCountBattleSincePreviousDay(dataCommAccVeh0.getBattles() - dataCommAccVeh1.getBattles());
+			    					  dataCommAccVeh0.setWinCountBattleSincePreviousDay(dataCommAccVeh0.getWins() - dataCommAccVeh1.getWins());
+			    					  listTankPlayedFromLastDay.add(dataCommAccVeh0);
 			    				  }
 			    				  break;
 			    			  }
@@ -1385,12 +1388,12 @@ public class WotStatsVehicules implements EntryPoint {
 		    			  
 		    		  }
 		    		  
-		    		  //Trier listVehPlayed selon getBattle_count 
-		    		  Collections.sort(listVehPlayed);
-		    		  object.setListVehPlayedSincePreviousDay0(listVehPlayed);
+		    		  //Trier listTankPlayedFromLastDay selon getBattle_count 
+		    		  Collections.sort(listTankPlayedFromLastDay);
+		    		  object.setListVehPlayedSincePreviousDay0(listTankPlayedFromLastDay);
 		    		  
-		    		  if(listVehPlayed.size() > 0)
-		    			  return String.valueOf(listVehPlayed.get(0).getName() ) ;
+		    		  if(listTankPlayedFromLastDay.size() > 0)
+		    			  return String.valueOf(listTankPlayedFromLastDay.get(0).getName() ) ;
 		    		  else
 		    			  return "";
 		    	  }
@@ -1398,6 +1401,9 @@ public class WotStatsVehicules implements EntryPoint {
 		    		  return "";
 		      }
 		    };
+		    
+		    
+		    
 		    String strDate =  listDates.get(0);
 		    tableHistorizedStatsTanksCommAcc.addColumn(jour1Tank1, "1er Tank Most played-" + strDate);
 	
