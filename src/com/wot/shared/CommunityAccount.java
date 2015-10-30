@@ -28,17 +28,18 @@ public class CommunityAccount implements Serializable, Comparable<CommunityAccou
 	public List< DataPlayerTankRatingsStatistics>  listTankStatistics = new ArrayList<DataPlayerTankRatingsStatistics>();
 	
 
-	private Date dateCommunityAccount;
+	private String dateCommunityAccount;
+	private List<DataPlayerTankRatingsStatistics> listTankPlayedFromLastDay;
 	
 	//////////////////////////////// getter ....
 	
 
-	public Date getDateCommunityAccount() {
+	public String getDateCommunityAccount() {
 		return dateCommunityAccount;
 	}
 
-	public void setDateCommunityAccount(Date dateCommunityAccount) {
-		this.dateCommunityAccount = dateCommunityAccount;
+	public void setDateCommunityAccount(String dateCurrent) {
+		this.dateCommunityAccount = dateCurrent;
 	}
 
 	public String getName() {
@@ -78,6 +79,15 @@ public class CommunityAccount implements Serializable, Comparable<CommunityAccou
       }
       return false;
     }
+
+	
+	public List<DataPlayerTankRatingsStatistics> getListTankPlayedFromLastDay() {
+		return listTankPlayedFromLastDay;
+	}
+
+	public void setListTankPlayedFromLastDay(List<DataPlayerTankRatingsStatistics> listTankPlayedFromLastDay) {
+		this.listTankPlayedFromLastDay = listTankPlayedFromLastDay;
+	}
 
 	
 }

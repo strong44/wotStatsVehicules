@@ -32,6 +32,8 @@ import com.wot.shared.Statistics;
 
 public class TransformDtoObject {
 
+	static java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy hh:mm");
+	
 	static {
 		try {
 			CronPersistPlayersStats.generateTankEncyclopedia();
@@ -129,7 +131,9 @@ public class TransformDtoObject {
 		//
 		myCommunityAccount.setName(daoAccount.getName());
 		
-		myCommunityAccount.setDateCommunityAccount(daoAccount.getDateCommunityAccount());
+		String dateCurrent = sdf.format(daoAccount.getDateCommunityAccount());
+		
+		myCommunityAccount.setDateCommunityAccount(dateCurrent);
 		
 		DaoDataCommunityAccount2 myDaoDataCommunityAccount2 = daoAccount.getData();
 		
@@ -142,10 +146,15 @@ public class TransformDtoObject {
 			myDataPlayerTankRatingsStatistics.setMark_of_mastery(myDaoDataCommunityAccountStatsVehicules.getMark_of_mastery());
 			myDataPlayerTankRatingsStatistics.setTank_id(myDaoDataCommunityAccountStatsVehicules.getTank_id());
 			
-			DataTankEncyclopedia myDataTankEncyclopedia = CronPersistPlayersStats.tankEncyclopedia.getData().get(myDaoDataCommunityAccountStatsVehicules.getTank_id()) ;
+			DataTankEncyclopedia myDataTankEncyclopedia = CronPersistPlayersStats.tankEncyclopedia.getData().get(Integer.valueOf(myDaoDataCommunityAccountStatsVehicules.getTank_id()).toString()) ;
 		
-			myDataPlayerTankRatingsStatistics.setTankName(myDataTankEncyclopedia.getName()); 
-			myCommunityAccount.listTankStatistics.add(myDataPlayerTankRatingsStatistics);
+			if (myDataTankEncyclopedia != null) {
+				myDataPlayerTankRatingsStatistics.setTankName(myDataTankEncyclopedia.getName_i18n()); 
+				myDataPlayerTankRatingsStatistics.setNation(myDataTankEncyclopedia.getNation_i18n()); 
+				myDataPlayerTankRatingsStatistics.setType(myDataTankEncyclopedia.getType());
+				myDataPlayerTankRatingsStatistics.setLevel(myDataTankEncyclopedia.getLevel());
+				myCommunityAccount.listTankStatistics.add(myDataPlayerTankRatingsStatistics);
+			}
 		}
 		
 		return myCommunityAccount;
